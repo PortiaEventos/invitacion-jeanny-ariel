@@ -5,288 +5,173 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f7f1e7">
 <title>Jeanny & Ariel</title>
-
-<link rel="preload" as="image" href="assets/01-portada.png">
-<link rel="preload" as="image" href="assets/02-apertura.png">
-
 <style>
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0;
-    background:#f7f1e7;
-    color:#244b99;
-    font-family:Georgia,serif;
-  }
-  body.locked{overflow:hidden}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f7f1e7;color:#244b99;font-family:Georgia,serif}
+body.locked{overflow:hidden}
+.invite{width:min(100%,472px);margin:0 auto;background:#f8f2e7;position:relative;overflow:hidden}
+.page-wrap{position:relative;line-height:0;overflow:hidden}
+.page{display:block;width:100%;height:auto;margin:0}
+.hotspot{position:absolute;z-index:40;display:block;border:0;background:transparent;border-radius:999px;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+#scroll-details{left:30%;top:43.8%;width:40%;height:7%}
+#location{left:30%;top:83.2%;width:40%;height:5.5%}
+#scroll-dress{left:29%;top:89%;width:42%;height:7.5%}
+#dress-women{left:34%;top:50%;width:34%;height:6.5%}
+#dress-men{left:34%;top:90%;width:34%;height:7%}
+#casa-cuesta{left:31%;top:38%;width:38%;height:6%}
+#amazon{left:31%;top:46.5%;width:38%;height:6%}
 
-  .invite{
-    width:min(100%,472px);
-    margin:0 auto;
-    background:#f8f2e7;
-    position:relative;
-    overflow:hidden;
-  }
-  .page-wrap{
-    position:relative;
-    line-height:0;
-    overflow:hidden;
-  }
-  .page{
-    display:block;
-    width:100%;
-    height:auto;
-    margin:0;
-  }
+/* Each page enters softly as the guest reaches it. */
+.scroll-page{opacity:.84;transform:translateY(24px) scale(.988);filter:blur(1.2px);
+ transition:opacity 1.15s ease,transform 1.25s cubic-bezier(.22,.61,.36,1),filter 1.1s ease}
+.scroll-page.in-view{opacity:1;transform:none;filter:none}
 
-  /* Zonas clicables invisibles sobre los botones de Canva */
-  .hotspot{
-    position:absolute;
-    z-index:30;
-    display:block;
-    border:0;
-    background:transparent;
-    border-radius:999px;
-    cursor:pointer;
-    touch-action:manipulation;
-    -webkit-tap-highlight-color:transparent;
-  }
+/* Small moving glints, kept subtle and away from the buttons. */
+.glint{position:absolute;z-index:12;width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.9);
+ box-shadow:0 0 12px 5px rgba(255,255,255,.45);opacity:0;pointer-events:none}
+.in-view .g1{animation:twinkle 3.8s .35s ease-in-out infinite}
+.in-view .g2{animation:twinkle 4.6s 1.15s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.5)}45%{opacity:.8;transform:scale(1.15)}}
 
-  /* Pág. 2: "Desliza para descubrir" */
-  #scroll-details{left:30%;top:43.8%;width:40%;height:7%}
+/* Opening */
+.cover{position:fixed;inset:0;z-index:100;background:#f7f1e7;display:flex;justify-content:center;align-items:flex-start;overflow:hidden;cursor:pointer;touch-action:manipulation}
+.cover-stage{position:relative;width:min(100vw,472px);height:100dvh;overflow:hidden;background:#f8f2e7}
+.reveal-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity:.80;transform:scale(.94);
+ transition:transform 1.45s cubic-bezier(.22,.61,.36,1),opacity 1.1s ease}
+.door-half{position:absolute;inset:0;z-index:3;overflow:hidden;will-change:transform,opacity;transition:transform 1.15s cubic-bezier(.65,0,.20,1),opacity .95s ease}
+.door-half img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.door-left{clip-path:inset(0 50% 0 0);transform-origin:left center}
+.door-right{clip-path:inset(0 0 0 50%);transform-origin:right center}
+.cover.open .reveal-image{transform:scale(1);opacity:1}
+.cover.open .door-left{transform:perspective(1200px) rotateY(-76deg) translateX(-14%);opacity:.18}
+.cover.open .door-right{transform:perspective(1200px) rotateY(76deg) translateX(14%);opacity:.18}
+.tap-zone{position:absolute;left:28%;top:53%;width:44%;height:12%;z-index:10;border:0;background:transparent;cursor:pointer}
+.cover.done{opacity:0;pointer-events:none;transition:opacity .42s ease}
+#opening{transform-origin:center top}
+#opening.entry{animation:pageEntry 1.05s cubic-bezier(.22,.61,.36,1) both}
+@keyframes pageEntry{0%{opacity:.90;transform:scale(.975)}100%{opacity:1;transform:scale(1)}}
 
-  /* Pág. 3: ubicación + seguir bajando */
-  #location{left:30%;top:83.2%;width:40%;height:5.5%}
-  #scroll-dress{left:29%;top:89.0%;width:42%;height:7.5%}
+/* Floating audio control */
+.audio-toggle{position:fixed;right:max(13px,calc((100vw - 472px)/2 + 13px));bottom:18px;z-index:80;
+ width:38px;height:38px;border:1px solid rgba(39,73,135,.22);border-radius:50%;background:rgba(250,246,238,.78);
+ backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 3px 14px rgba(0,0,0,.10);
+ color:#315b9d;font-size:16px;display:none;align-items:center;justify-content:center;cursor:pointer}
+.audio-toggle.show{display:flex}
+.audio-toggle span{line-height:1}
 
-  /* Pág. 4: referencias de vestimenta */
-  #dress-women{left:34%;top:50.0%;width:34%;height:6.5%}
-  #dress-men{left:34%;top:90.0%;width:34%;height:7%}
+/* Varied text-feel accents: slim translucent veils pass over content once as it enters. */
+.veil{position:absolute;z-index:11;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(255,255,255,.20),transparent);
+ width:42%;height:9%;opacity:0}
+.in-view .v-left{left:18%;top:24%;animation:sweepRight 1.35s .15s ease-out 1}
+.in-view .v-right{right:14%;top:56%;animation:sweepLeft 1.5s .5s ease-out 1}
+@keyframes sweepRight{0%{opacity:0;transform:translateX(-35px)}35%{opacity:.65}100%{opacity:0;transform:translateX(90px)}}
+@keyframes sweepLeft{0%{opacity:0;transform:translateX(35px)}35%{opacity:.55}100%{opacity:0;transform:translateX(-90px)}}
 
-  /* Pág. 5: listas de regalos */
-  #casa-cuesta{left:31%;top:38.0%;width:38%;height:6%}
-  #amazon{left:31%;top:46.5%;width:38%;height:6%}
-
-  /* Portada a pantalla completa */
-  .cover{
-    position:fixed;
-    inset:0;
-    z-index:100;
-    background:#f7f1e7;
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    overflow:hidden;
-    cursor:pointer;
-    touch-action:manipulation;
-  }
-  .cover-stage{
-    position:relative;
-    width:min(100vw,472px);
-    height:100dvh;
-    overflow:hidden;
-    background:#f8f2e7;
-  }
-
-  .cover-image,
-  .reveal-image{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-  }
-
-  /* Página 2 debajo de las puertas: pequeño zoom-in para sensación de entrada */
-  .reveal-image{
-    z-index:1;
-    opacity:.80;
-    transform:scale(.94);
-    filter:blur(.2px);
-    transition:
-      transform 1.45s cubic-bezier(.22,.61,.36,1),
-      opacity 1.10s ease,
-      filter 1.10s ease;
-  }
-  .cover.open .reveal-image{
-    transform:scale(1);
-    opacity:1;
-    filter:blur(0);
-  }
-
-  .door-half{
-    position:absolute;
-    inset:0;
-    z-index:3;
-    overflow:hidden;
-    will-change:transform,opacity;
-    transition:
-      transform 1.15s cubic-bezier(.65,0,.20,1),
-      opacity .95s ease;
-  }
-  .door-half img{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    max-width:none;
-  }
-  .door-left{
-    clip-path:inset(0 50% 0 0);
-    transform-origin:left center;
-  }
-  .door-right{
-    clip-path:inset(0 0 0 50%);
-    transform-origin:right center;
-  }
-
-  .cover.open .door-left{
-    transform:perspective(1200px) rotateY(-76deg) translateX(-14%);
-    opacity:.18;
-  }
-  .cover.open .door-right{
-    transform:perspective(1200px) rotateY(76deg) translateX(14%);
-    opacity:.18;
-  }
-
-  .tap-zone{
-    position:absolute;
-    left:28%;
-    top:53%;
-    width:44%;
-    height:12%;
-    z-index:10;
-    border:0;
-    background:transparent;
-    cursor:pointer;
-  }
-
-  .cover.done{
-    opacity:0;
-    pointer-events:none;
-    transition:opacity .42s ease;
-  }
-
-  /* Segundo movimiento suave cuando entra la página real */
-  #opening{
-    transform-origin:center top;
-  }
-  #opening.entry{
-    animation:pageEntry 1.05s cubic-bezier(.22,.61,.36,1) both;
-  }
-  @keyframes pageEntry{
-    0%{opacity:.90;transform:scale(.975)}
-    100%{opacity:1;transform:scale(1)}
-  }
-
-  @media (prefers-reduced-motion:reduce){
-    .door-half,.reveal-image,.cover.done{transition-duration:.01ms!important}
-    #opening.entry{animation:none!important}
-  }
+@media (prefers-reduced-motion:reduce){
+ .door-half,.reveal-image,.cover.done,.scroll-page{transition-duration:.01ms!important}
+ #opening.entry,.glint,.veil{animation:none!important}
+}
 </style>
 </head>
-
 <body class="locked">
+<audio id="music" preload="auto" loop playsinline>
+  <source src="assets/musica.mp3" type="audio/mpeg">
+</audio>
+<button class="audio-toggle" id="audioToggle" aria-label="Silenciar música" title="Música"><span id="audioIcon">♪</span></button>
 
 <div class="cover" id="cover" aria-label="Toca para abrir la invitación">
   <div class="cover-stage">
     <img class="reveal-image" src="assets/02-apertura.png" alt="">
-    <div class="door-half door-left">
-      <img src="assets/01-portada.png" alt="">
-    </div>
-    <div class="door-half door-right">
-      <img src="assets/01-portada.png" alt="">
-    </div>
+    <div class="door-half door-left"><img src="assets/01-portada.png" alt=""></div>
+    <div class="door-half door-right"><img src="assets/01-portada.png" alt=""></div>
     <button class="tap-zone" id="openBtn" aria-label="Toca para abrir"></button>
   </div>
 </div>
 
 <main class="invite">
-
   <div class="page-wrap" id="opening">
     <img class="page" src="assets/02-apertura.png" alt="Jeanny y Ariel, 15 de noviembre de 2026">
     <button class="hotspot" id="scroll-details" aria-label="Desliza para descubrir"></button>
   </div>
 
-  <div class="page-wrap" id="wedding-details">
-    <img class="page" src="assets/03-boda.png" alt="Información de la boda" loading="eager">
-
-    <a class="hotspot" id="location"
-       href="https://maps.app.goo.gl/bXNYkKEkYui6yCsP8?g_st=ic"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Ver ubicación de la boda"></a>
-
-    <button class="hotspot" id="scroll-dress"
-            aria-label="Desliza para descubrir los detalles"></button>
+  <div class="page-wrap scroll-page" id="wedding-details">
+    <img class="page" src="assets/03-boda.png" alt="Información de la boda">
+    <span class="glint g1" style="left:17%;top:20%"></span><span class="glint g2" style="right:18%;top:62%"></span>
+    <span class="veil v-left"></span>
+    <a class="hotspot" id="location" href="https://maps.app.goo.gl/bXNYkKEkYui6yCsP8?g_st=ic" target="_blank" rel="noopener noreferrer" aria-label="Ver ubicación de la boda"></a>
+    <button class="hotspot" id="scroll-dress" aria-label="Desliza para descubrir los detalles"></button>
   </div>
 
-  <div class="page-wrap" id="dress-code">
-    <img class="page" src="assets/04-vestuario.png" alt="Código de vestimenta" loading="lazy">
-
-    <a class="hotspot" id="dress-women"
-       href="https://www.pinterest.com/turtle_uv94/code-dress-girls/?invite_code=2acb87ba884a4c9c999840964b3e6c9f&sender=549931941906887975"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Ver referencias de vestimenta para ellas"></a>
-
-    <a class="hotspot" id="dress-men"
-       href="https://www.pinterest.com/turtle_uv94/code-dress-boys/?invite_code=ddfad047927e46b4bc0679652ee8c017&sender=549931941906887975"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Ver referencias de vestimenta para ellos"></a>
+  <div class="page-wrap scroll-page" id="dress-code">
+    <img class="page" src="assets/04-vestuario.png" alt="Código de vestimenta">
+    <span class="glint g1" style="right:20%;top:18%"></span><span class="glint g2" style="left:16%;top:70%"></span>
+    <span class="veil v-right"></span>
+    <a class="hotspot" id="dress-women" href="https://www.pinterest.com/turtle_uv94/code-dress-girls/?invite_code=2acb87ba884a4c9c999840964b3e6c9f&sender=549931941906887975" target="_blank" rel="noopener noreferrer" aria-label="Ver referencias de vestimenta para ellas"></a>
+    <a class="hotspot" id="dress-men" href="https://www.pinterest.com/turtle_uv94/code-dress-boys/?invite_code=ddfad047927e46b4bc0679652ee8c017&sender=549931941906887975" target="_blank" rel="noopener noreferrer" aria-label="Ver referencias de vestimenta para ellos"></a>
   </div>
 
-  <div class="page-wrap" id="gift-lists">
-    <img class="page" src="assets/05-regalos.png" alt="Listas de regalos" loading="lazy">
-
-    <a class="hotspot" id="casa-cuesta"
-       href="https://listaderegalos.casacuesta.com/Event/Jeanny-Ariel?utm_source=share"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Ver lista de regalos Casa Cuesta"></a>
-
-    <a class="hotspot" id="amazon"
-       href="https://www.amazon.com/wedding/guest-view/SKL6AKIKFPXG"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Ver lista de regalos Amazon"></a>
+  <div class="page-wrap scroll-page" id="gift-lists">
+    <img class="page" src="assets/05-regalos.png" alt="Listas de regalos">
+    <span class="glint g1" style="left:19%;top:17%"></span><span class="glint g2" style="right:17%;top:57%"></span>
+    <span class="veil v-left"></span>
+    <a class="hotspot" id="casa-cuesta" href="https://listaderegalos.casacuesta.com/Event/Jeanny-Ariel?utm_source=share" target="_blank" rel="noopener noreferrer" aria-label="Ver lista de regalos Casa Cuesta"></a>
+    <a class="hotspot" id="amazon" href="https://www.amazon.com/wedding/guest-view/SKL6AKIKFPXG" target="_blank" rel="noopener noreferrer" aria-label="Ver lista de regalos Amazon"></a>
   </div>
-
 </main>
 
 <script>
-  const cover = document.getElementById('cover');
-  const opening = document.getElementById('opening');
-  let openingStarted = false;
+const cover=document.getElementById('cover');
+const opening=document.getElementById('opening');
+const music=document.getElementById('music');
+const audioToggle=document.getElementById('audioToggle');
+const audioIcon=document.getElementById('audioIcon');
+let openingStarted=false, muted=false;
 
-  function openInvitation(){
-    if(openingStarted) return;
-    openingStarted = true;
-    cover.classList.add('open');
+music.volume=.48;
 
-    // Mantiene la velocidad de puertas que funcionó bien en celular,
-    // pero deja respirar un poco el zoom de la página 2.
-    setTimeout(() => {
-      document.body.classList.remove('locked');
-      opening.classList.add('entry');
-      window.scrollTo(0,0);
-      cover.classList.add('done');
+function syncAudioIcon(){
+  audioIcon.textContent=(muted || music.paused) ? '♩' : '♪';
+  audioToggle.setAttribute('aria-label',(muted || music.paused)?'Activar música':'Silenciar música');
+}
+function startMusic(){
+  music.muted=false; muted=false;
+  const p=music.play();
+  if(p && p.catch) p.catch(()=>{ syncAudioIcon(); });
+  audioToggle.classList.add('show');
+  syncAudioIcon();
+}
+function openInvitation(){
+  if(openingStarted)return;
+  openingStarted=true;
+  startMusic();
+  cover.classList.add('open');
+  setTimeout(()=>{
+    document.body.classList.remove('locked');
+    opening.classList.add('entry');
+    window.scrollTo(0,0);
+    cover.classList.add('done');
+    setTimeout(()=>cover.remove(),450);
+  },1350);
+}
+document.getElementById('openBtn').addEventListener('click',e=>{e.stopPropagation();openInvitation();});
+cover.addEventListener('click',openInvitation);
 
-      setTimeout(() => cover.remove(), 450);
-    }, 1350);
-  }
+audioToggle.addEventListener('click',()=>{
+  if(music.paused){ muted=false; music.muted=false; music.play().catch(()=>{}); }
+  else { muted=!muted; music.muted=muted; }
+  syncAudioIcon();
+});
 
-  document.getElementById('openBtn').addEventListener('click', (e) => {
-    e.stopPropagation();
-    openInvitation();
+document.getElementById('scroll-details').addEventListener('click',()=>document.getElementById('wedding-details').scrollIntoView({behavior:'smooth',block:'start'}));
+document.getElementById('scroll-dress').addEventListener('click',()=>document.getElementById('dress-code').scrollIntoView({behavior:'smooth',block:'start'}));
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('in-view');
   });
-  cover.addEventListener('click', openInvitation);
-
-  document.getElementById('scroll-details').addEventListener('click', () => {
-    document.getElementById('wedding-details').scrollIntoView({behavior:'smooth', block:'start'});
-  });
-
-  document.getElementById('scroll-dress').addEventListener('click', () => {
-    document.getElementById('dress-code').scrollIntoView({behavior:'smooth', block:'start'});
-  });
+},{threshold:.20,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.scroll-page').forEach(el=>observer.observe(el));
 </script>
-
 </body>
 </html>
