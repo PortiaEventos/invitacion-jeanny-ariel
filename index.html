@@ -1,23 +1,180 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Jeanny & Ariel · 15.11.2026</title>
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Jeanny & Ariel · 15.11.2026</title>
 <style>
-*{box-sizing:border-box}html,body{margin:0;background:#f7f1e7;color:#214a9a}body{overflow-x:hidden;font-family:Georgia,serif}.invite{width:min(100vw,944px);margin:0 auto;background:#f7f1e7}.page{position:relative;width:100%;overflow:hidden;aspect-ratio:944/2048}.base{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block}.pageReveal{opacity:0;transform:translateY(14px);transition:opacity .75s ease,transform .95s cubic-bezier(.2,.75,.2,1)}.pageReveal.on{opacity:1;transform:none}
-/* Text/detail layers are clipped from the final Canva artwork, over the clean backgrounds. */
-.layer{position:absolute;z-index:5;left:0;width:100%;background-size:100% auto;background-repeat:no-repeat;opacity:0;transform:translateY(18px);transition:opacity .75s ease,transform .9s cubic-bezier(.2,.75,.2,1);pointer-events:none}.on .layer{opacity:1;transform:none}.d1{transition-delay:.12s}.d2{transition-delay:.30s}.d3{transition-delay:.48s}.d4{transition-delay:.66s}.d5{transition-delay:.84s}.d6{transition-delay:1.02s}
-/* page 2 */.p2zoom{transform:scale(1.055);transform-origin:center 52%;transition:transform 1.45s cubic-bezier(.16,.8,.25,1)}.p2zoom.enter{transform:scale(1)}.p2a{top:11%;height:15%;background-image:url('assets/02-apertura-final.png?v=v5');background-position:center 11%}.p2b{top:25%;height:18%;background-image:url('assets/02-apertura-final.png?v=v5');background-position:center 25%}.p2c{top:41%;height:16%;background-image:url('assets/02-apertura-final.png?v=v5');background-position:center 41%}
-/* page 3 */.p3a{top:4%;height:20%;background-image:url('assets/03-boda-final.png?v=v5');background-position:center 4%}.p3b{top:23%;height:13%;background-image:url('assets/03-boda-final.png?v=v5');background-position:center 23%}.p3c{top:36%;height:17%;background-image:url('assets/03-boda-final.png?v=v5');background-position:center 36%}.p3d{top:53%;height:15%;background-image:url('assets/03-boda-final.png?v=v5');background-position:center 53%}.p3e{top:68%;height:16%;background-image:url('assets/03-boda-final.png?v=v5');background-position:center 68%}.p3f{top:83%;height:14%;background-image:url('assets/03-boda-final.png?v=v5');background-position:center 83%}
-/* page 4 */.p4a{top:4%;height:18%;background-image:url('assets/04-vestimenta-final.png?v=v5');background-position:center 4%}.p4b{top:20%;height:31%;background-image:url('assets/04-vestimenta-final.png?v=v5');background-position:center 20%}.p4c{top:50%;height:9%;background-image:url('assets/04-vestimenta-final.png?v=v5');background-position:center 50%}.p4d{top:58%;height:31%;background-image:url('assets/04-vestimenta-final.png?v=v5');background-position:center 58%}.p4e{top:88%;height:10%;background-image:url('assets/04-vestimenta-final.png?v=v5');background-position:center 88%}
-/* page 5 */.p5a{top:8%;height:18%;background-image:url('assets/05-regalos-final.png?v=v5');background-position:center 8%}.p5b{top:25%;height:23%;background-image:url('assets/05-regalos-final.png?v=v5');background-position:center 25%}.p5c{top:47%;height:17%;background-image:url('assets/05-regalos-final.png?v=v5');background-position:center 47%}.p5d{top:62%;height:14%;background-image:url('assets/05-regalos-final.png?v=v5');background-position:center 62%}
-.cover{position:fixed;z-index:100;inset:0;background:#f7f1e7;display:flex;align-items:center;justify-content:center;overflow:hidden;touch-action:manipulation;transition:opacity .28s ease 1.0s}.cover.open{pointer-events:none;opacity:0}.doors{position:relative;width:min(100vw,calc(100vh * 944 / 2048),944px);aspect-ratio:944/2048}.door{position:absolute;top:0;width:50%;height:100%;overflow:hidden;transition:transform 1.15s cubic-bezier(.65,0,.25,1);will-change:transform}.door img{display:block;width:100%;height:100%;object-fit:fill}.left{left:0;transform-origin:left center}.right{right:0;transform-origin:right center}.cover.open .left{transform:translateX(-103%)}.cover.open .right{transform:translateX(103%)}.tap{position:absolute;z-index:10;left:50%;top:61.5%;transform:translate(-50%,-50%);width:48%;height:10%;border:0;background:transparent;cursor:pointer;padding:0}
-.hot{position:absolute;z-index:30;display:block;border-radius:999px}.loc{left:31%;top:70.8%;width:38%;height:5.5%}.women{left:31%;top:51.2%;width:38%;height:4.6%}.men{left:29%;top:91.1%;width:42%;height:4.8%}.cuesta{left:31%;top:40.2%;width:38%;height:4.7%}.amazon{left:31%;top:50.4%;width:38%;height:4.7%}.music{position:fixed;right:14px;top:max(14px,env(safe-area-inset-top));z-index:90;width:42px;height:42px;border-radius:50%;border:1px solid rgba(31,70,145,.25);background:rgba(249,245,237,.88);backdrop-filter:blur(7px);font-size:18px;color:#214a9a;display:none;align-items:center;justify-content:center;box-shadow:0 3px 15px rgba(0,0,0,.08)}.music.show{display:flex}
-.water{position:absolute;pointer-events:none;z-index:8;overflow:hidden;opacity:.78}.water:before,.water:after{content:"";position:absolute;inset:-22% 0;background:repeating-linear-gradient(100deg,transparent 0 8%,rgba(255,255,255,.62) 9% 10%,rgba(185,211,222,.18) 11% 12%,transparent 13% 22%);filter:blur(.25px);background-size:100% 70%;animation:flow 1.05s linear infinite}.water:after{opacity:.4;animation-duration:2.05s;transform:translateX(8%)}@keyframes flow{from{transform:translateY(-18%)}to{transform:translateY(18%)}}.w2{left:42.5%;top:73.4%;width:15%;height:7.2%;border-radius:45%}.w5{left:78.5%;top:78.5%;width:17%;height:9%;border-radius:45%}@media(max-width:600px){.layer{transform:translateY(12px)}.music{right:10px;width:39px;height:39px}}
-</style></head><body>
-<audio id="song" preload="auto" playsinline loop><source src="assets/spring-max-richter.mp3?v=v5" type="audio/mpeg"></audio><button id="music" class="music" aria-label="Silenciar música">♫</button>
+*{box-sizing:border-box}
+html,body{margin:0;background:#f7f1e7;color:#214a9a}
+body{overflow-x:hidden;font-family:Georgia,serif}
+.invite{width:min(100vw,944px);margin:0 auto;background:#f7f1e7}
+.page{position:relative;width:100%;overflow:hidden;aspect-ratio:944/2048;background:#f7f1e7}
+.base{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block;z-index:1}
+.pageReveal{opacity:0;transform:translateY(10px);transition:opacity .62s ease,transform .78s cubic-bezier(.2,.72,.25,1)}
+.pageReveal.on{opacity:1;transform:none}
+
+/* Full-size artwork duplicated and clipped into independent animated blocks. This keeps the Canva design pixel-perfect. */
+.art{position:absolute;inset:0;z-index:5;width:100%;height:100%;pointer-events:none;opacity:0;transform:translate3d(0,14px,0) scale(.992);transition:opacity .72s ease,transform .9s cubic-bezier(.18,.78,.2,1);will-change:opacity,transform}
+.on .art{opacity:1;transform:translate3d(0,0,0) scale(1)}
+.art img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block}
+.d1{transition-delay:.08s}.d2{transition-delay:.28s}.d3{transition-delay:.50s}.d4{transition-delay:.72s}.d5{transition-delay:.94s}.d6{transition-delay:1.16s}.d7{transition-delay:1.38s}
+
+/* Page 2: side doors and ribbons NEVER transform. Only central garden gets a tiny continuous zoom. */
+.sceneZoom{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden;clip-path:inset(18% 23% 0 23%)}
+.sceneZoom img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;transform:scale(1);transform-origin:50% 68%;will-change:transform}
+.sceneZoom.go img{animation:enterGarden 1.35s cubic-bezier(.18,.82,.24,1) both}
+@keyframes enterGarden{from{transform:scale(1)}to{transform:scale(1.038)}}
+
+/* exact reveal windows */
+.p2-logo{clip-path:inset(3% 38% 84% 38%)}
+.p2-names{clip-path:inset(25% 25% 56% 25%)}
+.p2-date{clip-path:inset(43% 31% 50% 31%)}
+.p2-scroll{clip-path:inset(47% 25% 42% 25%)}
+
+.p3-top{clip-path:inset(2% 15% 76% 15%)}
+.p3-verse{clip-path:inset(23% 7% 64% 7%)}
+.p3-copy{clip-path:inset(35% 8% 50% 8%)}
+.p3-date{clip-path:inset(48% 12% 39% 12%)}
+.p3-venue{clip-path:inset(58% 8% 24% 8%)}
+.p3-loc{clip-path:inset(75% 20% 10% 20%)}
+.p3-scroll{clip-path:inset(88% 22% 1% 22%)}
+
+.p4-head{clip-path:inset(3% 12% 77% 12%)}
+.p4-womenTxt{clip-path:inset(19% 7% 65% 7%)}
+.p4-womenIll{clip-path:inset(32% 14% 47% 14%)}
+.p4-womenBtn{clip-path:inset(48% 24% 43% 24%)}
+.p4-menTxt{clip-path:inset(56% 7% 30% 7%)}
+.p4-menIll{clip-path:inset(68% 13% 9% 13%)}
+.p4-menBtn{clip-path:inset(90% 22% 1% 22%)}
+
+.p5-head{clip-path:inset(9% 17% 66% 17%)}
+.p5-copy{clip-path:inset(27% 15% 52% 15%)}
+.p5-cu{clip-path:inset(39% 20% 45% 20%)}
+.p5-amz{clip-path:inset(49% 20% 35% 20%)}
+.p5-adults{clip-path:inset(59% 19% 25% 19%)}
+
+.cover{position:fixed;z-index:100;inset:0;background:#f7f1e7;display:flex;align-items:center;justify-content:center;overflow:hidden;touch-action:manipulation;transition:opacity .22s ease .98s}
+.cover.open{pointer-events:none;opacity:0}
+.doors{position:relative;width:min(100vw,calc(100vh * 944 / 2048),944px);aspect-ratio:944/2048;overflow:hidden}
+.door{position:absolute;top:0;width:50%;height:100%;overflow:hidden;transition:transform 1.15s cubic-bezier(.65,0,.25,1);will-change:transform}
+.door img{display:block;width:100%;height:100%;object-fit:fill;transform:none!important}
+.left{left:0;transform-origin:left center}.right{right:0;transform-origin:right center}
+.cover.open .left{transform:translate3d(-103%,0,0)}.cover.open .right{transform:translate3d(103%,0,0)}
+.tap{position:absolute;z-index:10;left:50%;top:61.5%;transform:translate(-50%,-50%);width:48%;height:10%;border:0;background:transparent;cursor:pointer;padding:0;touch-action:manipulation}
+
+.hot{position:absolute;z-index:30;display:block;border-radius:999px}
+.loc{left:31%;top:70.8%;width:38%;height:5.5%}.women{left:31%;top:51.2%;width:38%;height:4.6%}.men{left:29%;top:91.1%;width:42%;height:4.8%}.cuesta{left:31%;top:40.2%;width:38%;height:4.7%}.amazon{left:31%;top:50.4%;width:38%;height:4.7%}
+.music{position:fixed;right:14px;top:max(14px,env(safe-area-inset-top));z-index:90;width:42px;height:42px;border-radius:50%;border:1px solid rgba(31,70,145,.25);background:rgba(249,245,237,.88);backdrop-filter:blur(7px);font-size:18px;color:#214a9a;display:none;align-items:center;justify-content:center;box-shadow:0 3px 15px rgba(0,0,0,.08)}.music.show{display:flex}
+
+/* Water effect: always running, GPU-backed, no dependency on scroll animation. */
+.water{position:absolute;pointer-events:none;z-index:9;overflow:hidden;opacity:.86;mix-blend-mode:screen;transform:translateZ(0);will-change:transform,opacity}
+.water:before,.water:after{content:"";position:absolute;left:-12%;right:-12%;top:-35%;height:170%;background:repeating-linear-gradient(101deg,transparent 0 8%,rgba(255,255,255,.72) 9% 10%,rgba(184,213,226,.23) 11% 12%,transparent 13% 22%);background-size:100% 64%;filter:blur(.2px);animation:waterFlow 1.0s linear infinite;will-change:transform}
+.water:after{opacity:.46;animation-duration:1.85s;animation-delay:-.6s}
+@keyframes waterFlow{from{transform:translate3d(0,-16%,0)}to{transform:translate3d(0,16%,0)}}
+.w2{left:41.7%;top:72.7%;width:16.6%;height:8.2%;border-radius:44%}
+.w5{left:78.0%;top:78.0%;width:18.0%;height:9.8%;border-radius:44%}
+
+@media(max-width:600px){.art{transform:translate3d(0,10px,0) scale(.994)}.music{right:10px;width:39px;height:39px}.pageReveal{transform:translateY(7px)}}
+</style>
+</head>
+<body>
+<audio id="song" preload="auto" playsinline loop><source src="assets/spring-max-richter.mp3?v=v6" type="audio/mpeg"></audio>
+<button id="music" class="music" aria-label="Silenciar música">♫</button>
+
 <div class="invite">
-<section class="page pageReveal p2zoom" id="p2"><img class="base" src="assets/02-apertura-base.png?v=v5" alt="Jeanny y Ariel"><span class="layer p2a d1"></span><span class="layer p2b d2"></span><span class="layer p2c d3"></span><span class="water w2"></span></section>
-<section class="page pageReveal"><img class="base" src="assets/03-boda-base.png?v=v5" alt="Detalles de la boda"><span class="layer p3a d1"></span><span class="layer p3b d2"></span><span class="layer p3c d3"></span><span class="layer p3d d4"></span><span class="layer p3e d5"></span><span class="layer p3f d6"></span><a class="hot loc" href="https://maps.app.goo.gl/bXNYkKEkYui6yCsP8?g_st=ic" target="_blank" rel="noopener" aria-label="Ver ubicación"></a></section>
-<section class="page pageReveal"><img class="base" src="assets/04-vestimenta-base.png?v=v5" alt="Código de vestimenta"><span class="layer p4a d1"></span><span class="layer p4b d2"></span><span class="layer p4c d3"></span><span class="layer p4d d4"></span><span class="layer p4e d5"></span><a class="hot women" href="https://www.pinterest.com/turtle_uv94/code-dress-girls/?invite_code=2acb87ba884a4c9c999840964b3e6c9f&sender=549931941906887975" target="_blank" rel="noopener"></a><a class="hot men" href="https://www.pinterest.com/turtle_uv94/code-dress-boys/?invite_code=ddfad047927e46b4bc0679652ee8c017&sender=549931941906887975" target="_blank" rel="noopener"></a></section>
-<section class="page pageReveal"><img class="base" src="assets/05-regalos-base.png?v=v5" alt="Listas de regalos"><span class="layer p5a d1"></span><span class="layer p5b d2"></span><span class="layer p5c d3"></span><span class="layer p5d d4"></span><a class="hot cuesta" href="https://listaderegalos.casacuesta.com/Event/Jeanny-Ariel?utm_source=share" target="_blank" rel="noopener"></a><a class="hot amazon" href="https://www.amazon.com/wedding/guest-view/SKL6AKIKFPXG" target="_blank" rel="noopener"></a><span class="water w5"></span></section></div>
-<div class="cover" id="cover"><div class="doors"><div class="door left"><img src="assets/01-puerta-izquierda.png?v=v5" alt=""></div><div class="door right"><img src="assets/01-puerta-derecha.png?v=v5" alt=""></div><button class="tap" id="open" aria-label="Toca para abrir"></button></div></div>
+  <section class="page pageReveal" id="p2">
+    <img class="base" src="assets/02-apertura-base.png?v=v6" alt="Jeanny y Ariel">
+    <div class="sceneZoom" id="sceneZoom"><img src="assets/02-apertura-base.png?v=v6" alt=""></div>
+    <div class="art p2-logo d1"><img src="assets/02-apertura-final.png?v=v6" alt=""></div>
+    <div class="art p2-names d2"><img src="assets/02-apertura-final.png?v=v6" alt=""></div>
+    <div class="art p2-date d3"><img src="assets/02-apertura-final.png?v=v6" alt=""></div>
+    <div class="art p2-scroll d4"><img src="assets/02-apertura-final.png?v=v6" alt=""></div>
+    <span class="water w2" aria-hidden="true"></span>
+  </section>
+
+  <section class="page pageReveal" id="p3">
+    <img class="base" src="assets/03-boda-base.png?v=v6" alt="Detalles de la boda">
+    <div class="art p3-top d1"><img src="assets/03-boda-final.png?v=v6" alt=""></div>
+    <div class="art p3-verse d2"><img src="assets/03-boda-final.png?v=v6" alt=""></div>
+    <div class="art p3-copy d3"><img src="assets/03-boda-final.png?v=v6" alt=""></div>
+    <div class="art p3-date d4"><img src="assets/03-boda-final.png?v=v6" alt=""></div>
+    <div class="art p3-venue d5"><img src="assets/03-boda-final.png?v=v6" alt=""></div>
+    <div class="art p3-loc d6"><img src="assets/03-boda-final.png?v=v6" alt=""></div>
+    <div class="art p3-scroll d7"><img src="assets/03-boda-final.png?v=v6" alt=""></div>
+    <a class="hot loc" href="https://maps.app.goo.gl/bXNYkKEkYui6yCsP8?g_st=ic" target="_blank" rel="noopener" aria-label="Ver ubicación"></a>
+  </section>
+
+  <section class="page pageReveal" id="p4">
+    <img class="base" src="assets/04-vestimenta-base.png?v=v6" alt="Código de vestimenta">
+    <div class="art p4-head d1"><img src="assets/04-vestimenta-final.png?v=v6" alt=""></div>
+    <div class="art p4-womenTxt d2"><img src="assets/04-vestimenta-final.png?v=v6" alt=""></div>
+    <div class="art p4-womenIll d3"><img src="assets/04-vestimenta-final.png?v=v6" alt=""></div>
+    <div class="art p4-womenBtn d4"><img src="assets/04-vestimenta-final.png?v=v6" alt=""></div>
+    <div class="art p4-menTxt d4"><img src="assets/04-vestimenta-final.png?v=v6" alt=""></div>
+    <div class="art p4-menIll d5"><img src="assets/04-vestimenta-final.png?v=v6" alt=""></div>
+    <div class="art p4-menBtn d6"><img src="assets/04-vestimenta-final.png?v=v6" alt=""></div>
+    <a class="hot women" href="https://www.pinterest.com/turtle_uv94/code-dress-girls/?invite_code=2acb87ba884a4c9c999840964b3e6c9f&sender=549931941906887975" target="_blank" rel="noopener" aria-label="Ver referencias para ellas"></a>
+    <a class="hot men" href="https://www.pinterest.com/turtle_uv94/code-dress-boys/?invite_code=ddfad047927e46b4bc0679652ee8c017&sender=549931941906887975" target="_blank" rel="noopener" aria-label="Ver referencias para ellos"></a>
+  </section>
+
+  <section class="page pageReveal" id="p5">
+    <img class="base" src="assets/05-regalos-base.png?v=v6" alt="Listas de regalos">
+    <div class="art p5-head d1"><img src="assets/05-regalos-final.png?v=v6" alt=""></div>
+    <div class="art p5-copy d2"><img src="assets/05-regalos-final.png?v=v6" alt=""></div>
+    <div class="art p5-cu d3"><img src="assets/05-regalos-final.png?v=v6" alt=""></div>
+    <div class="art p5-amz d4"><img src="assets/05-regalos-final.png?v=v6" alt=""></div>
+    <div class="art p5-adults d5"><img src="assets/05-regalos-final.png?v=v6" alt=""></div>
+    <a class="hot cuesta" href="https://listaderegalos.casacuesta.com/Event/Jeanny-Ariel?utm_source=share" target="_blank" rel="noopener" aria-label="Ver lista Casa Cuesta"></a>
+    <a class="hot amazon" href="https://www.amazon.com/wedding/guest-view/SKL6AKIKFPXG" target="_blank" rel="noopener" aria-label="Ver lista Amazon"></a>
+    <span class="water w5" aria-hidden="true"></span>
+  </section>
+</div>
+
+<div class="cover" id="cover">
+  <div class="doors">
+    <div class="door left"><img src="assets/01-puerta-izquierda.png?v=v6" alt=""></div>
+    <div class="door right"><img src="assets/01-puerta-derecha.png?v=v6" alt=""></div>
+    <button class="tap" id="open" aria-label="Toca para abrir"></button>
+  </div>
+</div>
+
 <script>
-const audio=document.getElementById('song'),cover=document.getElementById('cover'),openBtn=document.getElementById('open'),music=document.getElementById('music'),p2=document.getElementById('p2');audio.volume=.38;let opened=false;function openInvite(){if(opened)return;opened=true;audio.play().catch(()=>{});music.classList.add('show');p2.classList.add('on');requestAnimationFrame(()=>requestAnimationFrame(()=>p2.classList.add('enter')));cover.classList.add('open');setTimeout(()=>cover.style.display='none',1400)}openBtn.addEventListener('pointerup',openInvite,{passive:true});openBtn.addEventListener('click',openInvite);music.addEventListener('click',()=>{if(audio.paused){audio.play().catch(()=>{});music.textContent='♫'}else{audio.pause();music.textContent='♪̸'}});const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.18});document.querySelectorAll('.pageReveal:not(#p2)').forEach(el=>io.observe(el));
-</script></body></html>
+const audio=document.getElementById('song');
+const cover=document.getElementById('cover');
+const openBtn=document.getElementById('open');
+const music=document.getElementById('music');
+const p2=document.getElementById('p2');
+const sceneZoom=document.getElementById('sceneZoom');
+audio.volume=.38;
+let opened=false;
+
+function openInvite(){
+  if(opened)return;
+  opened=true;
+  // Must happen synchronously inside the user's tap for iOS/Android audio permission.
+  audio.play().catch(()=>{});
+  music.classList.add('show');
+  // Start the reveal and garden zoom immediately, while the doors are moving.
+  p2.classList.add('on');
+  sceneZoom.classList.add('go');
+  cover.classList.add('open');
+  setTimeout(()=>{cover.style.display='none'},1350);
+}
+openBtn.addEventListener('pointerup',openInvite,{passive:true});
+openBtn.addEventListener('click',openInvite);
+
+music.addEventListener('click',()=>{
+  if(audio.paused){audio.play().catch(()=>{});music.textContent='♫'}
+  else{audio.pause();music.textContent='♪̸'}
+});
+
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('on');
+  });
+},{threshold:.16,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.pageReveal:not(#p2)').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
