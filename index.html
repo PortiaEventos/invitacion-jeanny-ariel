@@ -34,7 +34,10 @@ body{overflow-x:hidden;font-family:Georgia,serif}
 .p3f{top:53.466796875%;height:17.08984375%;transition-delay:1.74s}
 .p3g{top:70.556640625%;height:29.443359375%;transition-delay:2.08s}
 
-/* Page 2: one continuous fixed background; true transparent text/logo overlays only. */
+/* Page 2 is the actual scene revealed behind the doors.
+   No duplicated scene is used during opening, which avoids the visible flash/jump. */
+#p2{transform:scale(.972);transform-origin:center center;transition:transform 1.20s cubic-bezier(.22,.61,.36,1);will-change:transform}
+#p2.opening{transform:scale(1)}
 .p2piece{position:absolute;inset:0;z-index:5;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity .78s ease;}
 #p2.on .p2piece{opacity:1}
 .p2piece img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block}
@@ -62,22 +65,16 @@ body{overflow-x:hidden;font-family:Georgia,serif}
 .p5-amz{clip-path:inset(49% 20% 35% 20%)}
 .p5-adults{clip-path:inset(59% 19% 25% 19%)}
 
-/* Portada: recupera el efecto original de puerta/libro con bisagra 3D.
-   Los lazos forman parte del arte de cada puerta: no tienen animación independiente. */
-.cover{position:fixed;z-index:100;inset:0;background:#f7f1e7;display:flex;align-items:center;justify-content:center;overflow:hidden;touch-action:manipulation;transition:opacity .38s ease 1.10s}
-.cover.open{pointer-events:none;opacity:0}
-.doors{position:relative;width:min(100vw,calc(100vh * 944 / 2048),944px);aspect-ratio:944/2048;overflow:hidden;perspective:1200px;background:#f7f1e7}
-.cover-reveal{position:absolute;inset:0;z-index:0;overflow:hidden;transform:scale(.975);transform-origin:center center;transition:transform 1.05s cubic-bezier(.22,.61,.36,1) .14s;will-change:transform}
-.cover.open .cover-reveal{transform:scale(1)}
-.cover-reveal>.reveal-base{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block}
-.reveal-piece{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block;opacity:0;transition:opacity .62s ease}
-.cover.open .reveal-piece{opacity:1}
-.r1{transition-delay:.30s}.r2{transition-delay:.48s}.r3{transition-delay:.68s}.r4{transition-delay:.86s}
-.door{position:absolute;top:0;width:50%;height:100%;overflow:hidden;z-index:3;transition:transform 1.15s cubic-bezier(.65,0,.20,1),opacity .95s ease;will-change:transform,opacity;transform-style:preserve-3d;backface-visibility:hidden}
+/* Portada: puertas con bisagra 3D sobre la MISMA página 2 real.
+   No hay una segunda imagen detrás, por lo que no existe salto visual al terminar la apertura. */
+.cover{position:fixed;z-index:100;inset:0;background:transparent;display:flex;align-items:center;justify-content:center;overflow:hidden;touch-action:manipulation;pointer-events:auto}
+.cover.open{pointer-events:none}
+.doors{position:relative;width:min(100vw,calc(100vh * 944 / 2048),944px);aspect-ratio:944/2048;overflow:visible;perspective:1500px;background:transparent}
+.door{position:absolute;top:0;width:50%;height:100%;overflow:hidden;z-index:3;transition:transform 1.18s cubic-bezier(.58,.02,.18,1),opacity 1.05s ease;will-change:transform,opacity;transform-style:preserve-3d;backface-visibility:hidden}
 .door img{display:block;width:100%;height:100%;object-fit:fill;transform:none!important;backface-visibility:hidden}
 .left{left:0;transform-origin:left center}.right{right:0;transform-origin:right center}
-.cover.open .left{transform:rotateY(-76deg) translateX(-14%);opacity:.22}
-.cover.open .right{transform:rotateY(76deg) translateX(14%);opacity:.22}
+.cover.open .left{transform:rotateY(-82deg);opacity:.08}
+.cover.open .right{transform:rotateY(82deg);opacity:.08}
 .tap{position:absolute;z-index:10;left:50%;top:61.5%;transform:translate(-50%,-50%);width:48%;height:10%;border:0;background:transparent;cursor:pointer;padding:0;touch-action:manipulation}
 
 .hot{position:absolute;z-index:30;display:block;border-radius:999px}
@@ -89,45 +86,45 @@ body{overflow-x:hidden;font-family:Georgia,serif}
 </style>
 </head>
 <body>
-<audio id="song" preload="auto" playsinline loop><source src="assets/spring-max-richter.mp3?v=v13" type="audio/mpeg"></audio>
+<audio id="song" preload="auto" playsinline loop><source src="assets/spring-max-richter.mp3?v=v14" type="audio/mpeg"></audio>
 <button id="music" class="music" aria-label="Silenciar música">♫</button>
 
 <div class="invite">
   <section class="page pageReveal" id="p2">
-    <img class="base" src="assets/02-apertura-base.png?v=v13" alt="Jeanny y Ariel">
-    <div class="p2piece p2-logo"><img src="assets/02-logo-overlay.png?v=v13" alt=""></div>
-    <div class="p2piece p2-names"><img src="assets/02-nombres-overlay.png?v=v13" alt=""></div>
-    <div class="p2piece p2-date"><img src="assets/02-fecha-overlay.png?v=v13" alt=""></div>
-    <div class="p2piece p2-scroll"><img src="assets/02-scroll-overlay.png?v=v13" alt=""></div>
+    <img class="base" src="assets/02-apertura-base.png?v=v14" alt="Jeanny y Ariel">
+    <div class="p2piece p2-logo"><img src="assets/02-logo-overlay.png?v=v14" alt=""></div>
+    <div class="p2piece p2-names"><img src="assets/02-nombres-overlay.png?v=v14" alt=""></div>
+    <div class="p2piece p2-date"><img src="assets/02-fecha-overlay.png?v=v14" alt=""></div>
+    <div class="p2piece p2-scroll"><img src="assets/02-scroll-overlay.png?v=v14" alt=""></div>
   </section>
 
   <section class="page pageReveal" id="p3">
-    <img class="base" src="assets/03-boda-base.png?v=v13" alt="Detalles de la boda">
-    <div class="p3fade p3a"><img src="assets/03-logo.png?v=v13" alt=""></div>
-    <div class="p3fade p3b"><img src="assets/03-nombres.png?v=v13" alt=""></div>
-    <div class="p3fade p3c"><img src="assets/03-versiculo.png?v=v13" alt=""></div>
-    <div class="p3fade p3d"><img src="assets/03-mensaje.png?v=v13" alt=""></div>
-    <div class="p3fade p3e"><img src="assets/03-fecha.png?v=v13" alt=""></div>
-    <div class="p3fade p3f"><img src="assets/03-lugar.png?v=v13" alt=""></div>
-    <div class="p3fade p3g"><img src="assets/03-boton-scroll.png?v=v13" alt=""></div>
+    <img class="base" src="assets/03-boda-base.png?v=v14" alt="Detalles de la boda">
+    <div class="p3fade p3a"><img src="assets/03-logo.png?v=v14" alt=""></div>
+    <div class="p3fade p3b"><img src="assets/03-nombres.png?v=v14" alt=""></div>
+    <div class="p3fade p3c"><img src="assets/03-versiculo.png?v=v14" alt=""></div>
+    <div class="p3fade p3d"><img src="assets/03-mensaje.png?v=v14" alt=""></div>
+    <div class="p3fade p3e"><img src="assets/03-fecha.png?v=v14" alt=""></div>
+    <div class="p3fade p3f"><img src="assets/03-lugar.png?v=v14" alt=""></div>
+    <div class="p3fade p3g"><img src="assets/03-boton-scroll.png?v=v14" alt=""></div>
     <a class="hot loc" href="https://maps.app.goo.gl/bXNYkKEkYui6yCsP8?g_st=ic" target="_blank" rel="noopener" aria-label="Ver ubicación"></a>
   </section>
 
   <section class="page pageReveal" id="p4">
-    <img class="base" src="assets/04-vestimenta-base.png?v=v13" alt="Código de vestimenta">
-    <div class="art p4-head d1"><img src="assets/04-vestimenta-final.png?v=v13" alt=""></div>
-    <div class="art p4-womenTxt d2"><img src="assets/04-vestimenta-final.png?v=v13" alt=""></div>
-    <div class="art p4-womenIll d3"><img src="assets/04-vestimenta-final.png?v=v13" alt=""></div>
-    <div class="art p4-womenBtn d4"><img src="assets/04-vestimenta-final.png?v=v13" alt=""></div>
-    <div class="art p4-menTxt d4"><img src="assets/04-vestimenta-final.png?v=v13" alt=""></div>
-    <div class="art p4-menIll d5"><img src="assets/04-vestimenta-final.png?v=v13" alt=""></div>
-    <div class="art p4-menBtn d6"><img src="assets/04-vestimenta-final.png?v=v13" alt=""></div>
+    <img class="base" src="assets/04-vestimenta-base.png?v=v14" alt="Código de vestimenta">
+    <div class="art p4-head d1"><img src="assets/04-vestimenta-final.png?v=v14" alt=""></div>
+    <div class="art p4-womenTxt d2"><img src="assets/04-vestimenta-final.png?v=v14" alt=""></div>
+    <div class="art p4-womenIll d3"><img src="assets/04-vestimenta-final.png?v=v14" alt=""></div>
+    <div class="art p4-womenBtn d4"><img src="assets/04-vestimenta-final.png?v=v14" alt=""></div>
+    <div class="art p4-menTxt d4"><img src="assets/04-vestimenta-final.png?v=v14" alt=""></div>
+    <div class="art p4-menIll d5"><img src="assets/04-vestimenta-final.png?v=v14" alt=""></div>
+    <div class="art p4-menBtn d6"><img src="assets/04-vestimenta-final.png?v=v14" alt=""></div>
     <a class="hot women" href="https://www.pinterest.com/turtle_uv94/code-dress-girls/?invite_code=2acb87ba884a4c9c999840964b3e6c9f&sender=549931941906887975" target="_blank" rel="noopener" aria-label="Ver referencias para ellas"></a>
     <a class="hot men" href="https://www.pinterest.com/turtle_uv94/code-dress-boys/?invite_code=ddfad047927e46b4bc0679652ee8c017&sender=549931941906887975" target="_blank" rel="noopener" aria-label="Ver referencias para ellos"></a>
   </section>
 
   <section class="page pageReveal" id="p5">
-    <img class="base" src="assets/05-regalos-final-aprobada.png?v=v13" alt="Listas de regalos">
+    <img class="base" src="assets/05-regalos-final-aprobada.png?v=v14" alt="Listas de regalos">
     <a class="hot cuesta" href="https://listaderegalos.casacuesta.com/Event/Jeanny-Ariel?utm_source=share" target="_blank" rel="noopener" aria-label="Ver lista Casa Cuesta"></a>
     <a class="hot amazon" href="https://www.amazon.com/wedding/guest-view/SKL6AKIKFPXG" target="_blank" rel="noopener" aria-label="Ver lista Amazon"></a>
   </section>
@@ -135,15 +132,8 @@ body{overflow-x:hidden;font-family:Georgia,serif}
 
 <div class="cover" id="cover">
   <div class="doors">
-    <div class="cover-reveal" aria-hidden="true">
-      <img class="reveal-base" src="assets/02-apertura-base.png?v=v13" alt="">
-      <img class="reveal-piece r1" src="assets/02-logo-overlay.png?v=v13" alt="">
-      <img class="reveal-piece r2" src="assets/02-nombres-overlay.png?v=v13" alt="">
-      <img class="reveal-piece r3" src="assets/02-fecha-overlay.png?v=v13" alt="">
-      <img class="reveal-piece r4" src="assets/02-scroll-overlay.png?v=v13" alt="">
-    </div>
-    <div class="door left"><img src="assets/01-puerta-izquierda.png?v=v13" alt=""></div>
-    <div class="door right"><img src="assets/01-puerta-derecha.png?v=v13" alt=""></div>
+    <div class="door left"><img src="assets/01-puerta-izquierda.png?v=v14" alt=""></div>
+    <div class="door right"><img src="assets/01-puerta-derecha.png?v=v14" alt=""></div>
     <button class="tap" id="open" aria-label="Toca para abrir"></button>
   </div>
 </div>
@@ -163,10 +153,19 @@ function openInvite(){
   // Must happen synchronously inside the user's tap for iOS/Android audio permission.
   audio.play().catch(()=>{});
   music.classList.add('show');
-  // Background remains fixed to avoid any image seam; only text/art fades in.
-  p2.classList.add('on');
+
+  // The real second page is already behind the doors.
+  // We zoom that SAME image while the doors rotate, so there is no handoff/flash.
+  p2.classList.add('opening');
   cover.classList.add('open');
-  setTimeout(()=>{cover.style.display='none'},1600);
+
+  // Let the artwork appear slightly after the doors begin moving.
+  requestAnimationFrame(()=>{
+    setTimeout(()=>p2.classList.add('on'),180);
+  });
+
+  // Once the doors are fully out of view, remove only the door layer.
+  setTimeout(()=>{cover.style.display='none'},1320);
 }
 openBtn.addEventListener('pointerup',openInvite,{passive:true});
 openBtn.addEventListener('click',openInvite);
