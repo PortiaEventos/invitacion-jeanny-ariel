@@ -34,9 +34,7 @@ body{overflow-x:hidden;font-family:Georgia,serif}
 .p3f{top:53.466796875%;height:17.08984375%;transition-delay:1.74s}
 .p3g{top:70.556640625%;height:29.443359375%;transition-delay:2.08s}
 
-/* Page 2: background stays completely fixed. Only transparent artwork fades in. */
-
-/* Page 2 uses transparent overlays only; no duplicated background and no clipping seams. */
+/* Page 2: one continuous fixed background; true transparent text/logo overlays only. */
 .p2piece{position:absolute;inset:0;z-index:5;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity .78s ease;}
 #p2.on .p2piece{opacity:1}
 .p2piece img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block}
@@ -82,45 +80,45 @@ body{overflow-x:hidden;font-family:Georgia,serif}
 </style>
 </head>
 <body>
-<audio id="song" preload="auto" playsinline loop><source src="assets/spring-max-richter.mp3?v=v11" type="audio/mpeg"></audio>
+<audio id="song" preload="auto" playsinline loop><source src="assets/spring-max-richter.mp3?v=v12" type="audio/mpeg"></audio>
 <button id="music" class="music" aria-label="Silenciar música">♫</button>
 
 <div class="invite">
   <section class="page pageReveal" id="p2">
-    <img class="base" src="assets/02-apertura-base.png?v=v11" alt="Jeanny y Ariel">
-    <div class="p2piece p2-logo"><img src="assets/02-logo-overlay.png?v=v11" alt=""></div>
-    <div class="p2piece p2-names"><img src="assets/02-nombres-overlay.png?v=v11" alt=""></div>
-    <div class="p2piece p2-date"><img src="assets/02-fecha-overlay.png?v=v11" alt=""></div>
-    <div class="p2piece p2-scroll"><img src="assets/02-scroll-overlay.png?v=v11" alt=""></div>
+    <img class="base" src="assets/02-apertura-base.png?v=v12" alt="Jeanny y Ariel">
+    <div class="p2piece p2-logo"><img src="assets/02-logo-overlay.png?v=v12" alt=""></div>
+    <div class="p2piece p2-names"><img src="assets/02-nombres-overlay.png?v=v12" alt=""></div>
+    <div class="p2piece p2-date"><img src="assets/02-fecha-overlay.png?v=v12" alt=""></div>
+    <div class="p2piece p2-scroll"><img src="assets/02-scroll-overlay.png?v=v12" alt=""></div>
   </section>
 
   <section class="page pageReveal" id="p3">
-    <img class="base" src="assets/03-boda-base.png?v=v11" alt="Detalles de la boda">
-    <div class="p3fade p3a"><img src="assets/03-logo.png?v=v11" alt=""></div>
-    <div class="p3fade p3b"><img src="assets/03-nombres.png?v=v11" alt=""></div>
-    <div class="p3fade p3c"><img src="assets/03-versiculo.png?v=v11" alt=""></div>
-    <div class="p3fade p3d"><img src="assets/03-mensaje.png?v=v11" alt=""></div>
-    <div class="p3fade p3e"><img src="assets/03-fecha.png?v=v11" alt=""></div>
-    <div class="p3fade p3f"><img src="assets/03-lugar.png?v=v11" alt=""></div>
-    <div class="p3fade p3g"><img src="assets/03-boton-scroll.png?v=v11" alt=""></div>
+    <img class="base" src="assets/03-boda-base.png?v=v12" alt="Detalles de la boda">
+    <div class="p3fade p3a"><img src="assets/03-logo.png?v=v12" alt=""></div>
+    <div class="p3fade p3b"><img src="assets/03-nombres.png?v=v12" alt=""></div>
+    <div class="p3fade p3c"><img src="assets/03-versiculo.png?v=v12" alt=""></div>
+    <div class="p3fade p3d"><img src="assets/03-mensaje.png?v=v12" alt=""></div>
+    <div class="p3fade p3e"><img src="assets/03-fecha.png?v=v12" alt=""></div>
+    <div class="p3fade p3f"><img src="assets/03-lugar.png?v=v12" alt=""></div>
+    <div class="p3fade p3g"><img src="assets/03-boton-scroll.png?v=v12" alt=""></div>
     <a class="hot loc" href="https://maps.app.goo.gl/bXNYkKEkYui6yCsP8?g_st=ic" target="_blank" rel="noopener" aria-label="Ver ubicación"></a>
   </section>
 
   <section class="page pageReveal" id="p4">
-    <img class="base" src="assets/04-vestimenta-base.png?v=v11" alt="Código de vestimenta">
-    <div class="art p4-head d1"><img src="assets/04-vestimenta-final.png?v=v11" alt=""></div>
-    <div class="art p4-womenTxt d2"><img src="assets/04-vestimenta-final.png?v=v11" alt=""></div>
-    <div class="art p4-womenIll d3"><img src="assets/04-vestimenta-final.png?v=v11" alt=""></div>
-    <div class="art p4-womenBtn d4"><img src="assets/04-vestimenta-final.png?v=v11" alt=""></div>
-    <div class="art p4-menTxt d4"><img src="assets/04-vestimenta-final.png?v=v11" alt=""></div>
-    <div class="art p4-menIll d5"><img src="assets/04-vestimenta-final.png?v=v11" alt=""></div>
-    <div class="art p4-menBtn d6"><img src="assets/04-vestimenta-final.png?v=v11" alt=""></div>
+    <img class="base" src="assets/04-vestimenta-base.png?v=v12" alt="Código de vestimenta">
+    <div class="art p4-head d1"><img src="assets/04-vestimenta-final.png?v=v12" alt=""></div>
+    <div class="art p4-womenTxt d2"><img src="assets/04-vestimenta-final.png?v=v12" alt=""></div>
+    <div class="art p4-womenIll d3"><img src="assets/04-vestimenta-final.png?v=v12" alt=""></div>
+    <div class="art p4-womenBtn d4"><img src="assets/04-vestimenta-final.png?v=v12" alt=""></div>
+    <div class="art p4-menTxt d4"><img src="assets/04-vestimenta-final.png?v=v12" alt=""></div>
+    <div class="art p4-menIll d5"><img src="assets/04-vestimenta-final.png?v=v12" alt=""></div>
+    <div class="art p4-menBtn d6"><img src="assets/04-vestimenta-final.png?v=v12" alt=""></div>
     <a class="hot women" href="https://www.pinterest.com/turtle_uv94/code-dress-girls/?invite_code=2acb87ba884a4c9c999840964b3e6c9f&sender=549931941906887975" target="_blank" rel="noopener" aria-label="Ver referencias para ellas"></a>
     <a class="hot men" href="https://www.pinterest.com/turtle_uv94/code-dress-boys/?invite_code=ddfad047927e46b4bc0679652ee8c017&sender=549931941906887975" target="_blank" rel="noopener" aria-label="Ver referencias para ellos"></a>
   </section>
 
   <section class="page pageReveal" id="p5">
-    <img class="base" src="assets/05-regalos-final-aprobada.png?v=v11" alt="Listas de regalos">
+    <img class="base" src="assets/05-regalos-final-aprobada.png?v=v12" alt="Listas de regalos">
     <a class="hot cuesta" href="https://listaderegalos.casacuesta.com/Event/Jeanny-Ariel?utm_source=share" target="_blank" rel="noopener" aria-label="Ver lista Casa Cuesta"></a>
     <a class="hot amazon" href="https://www.amazon.com/wedding/guest-view/SKL6AKIKFPXG" target="_blank" rel="noopener" aria-label="Ver lista Amazon"></a>
   </section>
@@ -128,8 +126,8 @@ body{overflow-x:hidden;font-family:Georgia,serif}
 
 <div class="cover" id="cover">
   <div class="doors">
-    <div class="door left"><img src="assets/01-puerta-izquierda.png?v=v11" alt=""></div>
-    <div class="door right"><img src="assets/01-puerta-derecha.png?v=v11" alt=""></div>
+    <div class="door left"><img src="assets/01-puerta-izquierda.png?v=v12" alt=""></div>
+    <div class="door right"><img src="assets/01-puerta-derecha.png?v=v12" alt=""></div>
     <button class="tap" id="open" aria-label="Toca para abrir"></button>
   </div>
 </div>
