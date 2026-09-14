@@ -34,18 +34,13 @@ body{overflow-x:hidden;font-family:Georgia,serif}
 .p3f{top:53.466796875%;height:17.08984375%;transition-delay:1.74s}
 .p3g{top:70.556640625%;height:29.443359375%;transition-delay:2.08s}
 
-/* Page 2: simple entrance requested by the couple.
-   Doors/ribbons stay rigid; only the central garden gets a tiny one-time zoom. */
-.sceneZoom{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden;clip-path:inset(18% 23% 0 23%)}
-.sceneZoom img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;transform:scale(1);transform-origin:50% 68%;will-change:transform}
-.sceneZoom.go img{animation:enterGarden 1.35s cubic-bezier(.18,.82,.24,1) both}
-@keyframes enterGarden{from{transform:scale(1)}to{transform:scale(1.038)}}
+/* Page 2: background stays completely fixed. Only transparent artwork fades in. */
 
-/* exact reveal windows */
-.p2-logo{clip-path:inset(3% 38% 84% 38%)}
-.p2-names{clip-path:inset(25% 25% 56% 25%)}
-.p2-date{clip-path:inset(43% 31% 50% 31%)}
-.p2-scroll{clip-path:inset(47% 25% 42% 25%)}
+/* Page 2 uses transparent overlays only; no duplicated background and no clipping seams. */
+.p2piece{position:absolute;inset:0;z-index:5;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity .78s ease;}
+#p2.on .p2piece{opacity:1}
+.p2piece img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block}
+.p2-logo{transition-delay:.12s}.p2-names{transition-delay:.38s}.p2-date{transition-delay:.68s}.p2-scroll{transition-delay:.98s}
 
 .p3-top{clip-path:inset(2% 0% 76% 0%)}
 .p3-verse{clip-path:inset(23% 7% 64% 7%)}
@@ -87,46 +82,45 @@ body{overflow-x:hidden;font-family:Georgia,serif}
 </style>
 </head>
 <body>
-<audio id="song" preload="auto" playsinline loop><source src="assets/spring-max-richter.mp3?v=v10" type="audio/mpeg"></audio>
+<audio id="song" preload="auto" playsinline loop><source src="assets/spring-max-richter.mp3?v=v11" type="audio/mpeg"></audio>
 <button id="music" class="music" aria-label="Silenciar música">♫</button>
 
 <div class="invite">
   <section class="page pageReveal" id="p2">
-    <img class="base" src="assets/02-apertura-base.png?v=v10" alt="Jeanny y Ariel">
-    <div class="sceneZoom" id="sceneZoom"><img src="assets/02-apertura-base.png?v=v10" alt=""></div>
-    <div class="art p2-logo d1"><img src="assets/02-apertura-final.png?v=v10" alt=""></div>
-    <div class="art p2-names d2"><img src="assets/02-apertura-final.png?v=v10" alt=""></div>
-    <div class="art p2-date d3"><img src="assets/02-apertura-final.png?v=v10" alt=""></div>
-    <div class="art p2-scroll d4"><img src="assets/02-apertura-final.png?v=v10" alt=""></div>
+    <img class="base" src="assets/02-apertura-base.png?v=v11" alt="Jeanny y Ariel">
+    <div class="p2piece p2-logo"><img src="assets/02-logo-overlay.png?v=v11" alt=""></div>
+    <div class="p2piece p2-names"><img src="assets/02-nombres-overlay.png?v=v11" alt=""></div>
+    <div class="p2piece p2-date"><img src="assets/02-fecha-overlay.png?v=v11" alt=""></div>
+    <div class="p2piece p2-scroll"><img src="assets/02-scroll-overlay.png?v=v11" alt=""></div>
   </section>
 
   <section class="page pageReveal" id="p3">
-    <img class="base" src="assets/03-boda-base.png?v=v10" alt="Detalles de la boda">
-    <div class="p3fade p3a"><img src="assets/03-logo.png?v=v10" alt=""></div>
-    <div class="p3fade p3b"><img src="assets/03-nombres.png?v=v10" alt=""></div>
-    <div class="p3fade p3c"><img src="assets/03-versiculo.png?v=v10" alt=""></div>
-    <div class="p3fade p3d"><img src="assets/03-mensaje.png?v=v10" alt=""></div>
-    <div class="p3fade p3e"><img src="assets/03-fecha.png?v=v10" alt=""></div>
-    <div class="p3fade p3f"><img src="assets/03-lugar.png?v=v10" alt=""></div>
-    <div class="p3fade p3g"><img src="assets/03-boton-scroll.png?v=v10" alt=""></div>
+    <img class="base" src="assets/03-boda-base.png?v=v11" alt="Detalles de la boda">
+    <div class="p3fade p3a"><img src="assets/03-logo.png?v=v11" alt=""></div>
+    <div class="p3fade p3b"><img src="assets/03-nombres.png?v=v11" alt=""></div>
+    <div class="p3fade p3c"><img src="assets/03-versiculo.png?v=v11" alt=""></div>
+    <div class="p3fade p3d"><img src="assets/03-mensaje.png?v=v11" alt=""></div>
+    <div class="p3fade p3e"><img src="assets/03-fecha.png?v=v11" alt=""></div>
+    <div class="p3fade p3f"><img src="assets/03-lugar.png?v=v11" alt=""></div>
+    <div class="p3fade p3g"><img src="assets/03-boton-scroll.png?v=v11" alt=""></div>
     <a class="hot loc" href="https://maps.app.goo.gl/bXNYkKEkYui6yCsP8?g_st=ic" target="_blank" rel="noopener" aria-label="Ver ubicación"></a>
   </section>
 
   <section class="page pageReveal" id="p4">
-    <img class="base" src="assets/04-vestimenta-base.png?v=v10" alt="Código de vestimenta">
-    <div class="art p4-head d1"><img src="assets/04-vestimenta-final.png?v=v10" alt=""></div>
-    <div class="art p4-womenTxt d2"><img src="assets/04-vestimenta-final.png?v=v10" alt=""></div>
-    <div class="art p4-womenIll d3"><img src="assets/04-vestimenta-final.png?v=v10" alt=""></div>
-    <div class="art p4-womenBtn d4"><img src="assets/04-vestimenta-final.png?v=v10" alt=""></div>
-    <div class="art p4-menTxt d4"><img src="assets/04-vestimenta-final.png?v=v10" alt=""></div>
-    <div class="art p4-menIll d5"><img src="assets/04-vestimenta-final.png?v=v10" alt=""></div>
-    <div class="art p4-menBtn d6"><img src="assets/04-vestimenta-final.png?v=v10" alt=""></div>
+    <img class="base" src="assets/04-vestimenta-base.png?v=v11" alt="Código de vestimenta">
+    <div class="art p4-head d1"><img src="assets/04-vestimenta-final.png?v=v11" alt=""></div>
+    <div class="art p4-womenTxt d2"><img src="assets/04-vestimenta-final.png?v=v11" alt=""></div>
+    <div class="art p4-womenIll d3"><img src="assets/04-vestimenta-final.png?v=v11" alt=""></div>
+    <div class="art p4-womenBtn d4"><img src="assets/04-vestimenta-final.png?v=v11" alt=""></div>
+    <div class="art p4-menTxt d4"><img src="assets/04-vestimenta-final.png?v=v11" alt=""></div>
+    <div class="art p4-menIll d5"><img src="assets/04-vestimenta-final.png?v=v11" alt=""></div>
+    <div class="art p4-menBtn d6"><img src="assets/04-vestimenta-final.png?v=v11" alt=""></div>
     <a class="hot women" href="https://www.pinterest.com/turtle_uv94/code-dress-girls/?invite_code=2acb87ba884a4c9c999840964b3e6c9f&sender=549931941906887975" target="_blank" rel="noopener" aria-label="Ver referencias para ellas"></a>
     <a class="hot men" href="https://www.pinterest.com/turtle_uv94/code-dress-boys/?invite_code=ddfad047927e46b4bc0679652ee8c017&sender=549931941906887975" target="_blank" rel="noopener" aria-label="Ver referencias para ellos"></a>
   </section>
 
   <section class="page pageReveal" id="p5">
-    <img class="base" src="assets/05-regalos-final-aprobada.png?v=v10" alt="Listas de regalos">
+    <img class="base" src="assets/05-regalos-final-aprobada.png?v=v11" alt="Listas de regalos">
     <a class="hot cuesta" href="https://listaderegalos.casacuesta.com/Event/Jeanny-Ariel?utm_source=share" target="_blank" rel="noopener" aria-label="Ver lista Casa Cuesta"></a>
     <a class="hot amazon" href="https://www.amazon.com/wedding/guest-view/SKL6AKIKFPXG" target="_blank" rel="noopener" aria-label="Ver lista Amazon"></a>
   </section>
@@ -134,8 +128,8 @@ body{overflow-x:hidden;font-family:Georgia,serif}
 
 <div class="cover" id="cover">
   <div class="doors">
-    <div class="door left"><img src="assets/01-puerta-izquierda.png?v=v10" alt=""></div>
-    <div class="door right"><img src="assets/01-puerta-derecha.png?v=v10" alt=""></div>
+    <div class="door left"><img src="assets/01-puerta-izquierda.png?v=v11" alt=""></div>
+    <div class="door right"><img src="assets/01-puerta-derecha.png?v=v11" alt=""></div>
     <button class="tap" id="open" aria-label="Toca para abrir"></button>
   </div>
 </div>
@@ -146,7 +140,6 @@ const cover=document.getElementById('cover');
 const openBtn=document.getElementById('open');
 const music=document.getElementById('music');
 const p2=document.getElementById('p2');
-const sceneZoom=document.getElementById('sceneZoom');
 audio.volume=.38;
 let opened=false;
 
@@ -156,9 +149,8 @@ function openInvite(){
   // Must happen synchronously inside the user's tap for iOS/Android audio permission.
   audio.play().catch(()=>{});
   music.classList.add('show');
-  // Simple entrance: reveal + a small one-time garden zoom while the doors open.
+  // Background remains fixed to avoid any image seam; only text/art fades in.
   p2.classList.add('on');
-  sceneZoom.classList.add('go');
   cover.classList.add('open');
   setTimeout(()=>{cover.style.display='none'},1350);
 }
