@@ -1,188 +1,20 @@
 <!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Jeanny & Ariel · 15.11.2026</title>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Jeanny & Ariel · 15.11.2026</title>
 <style>
-*{box-sizing:border-box}
-html,body{margin:0;background:#f7f1e7;color:#214a9a}
-body{overflow:hidden;font-family:Georgia,serif}
-body.opened{overflow-x:hidden;overflow-y:auto}
-.invite{width:min(100vw,944px);margin:0 auto;background:#f7f1e7}
-.page{position:relative;width:100%;overflow:hidden;aspect-ratio:944/2048;background:#f7f1e7}
-.base{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block;z-index:1}
-.pageReveal{opacity:1;transform:none;transition:none}
-
-/* Static page artwork: always visible on desktop and mobile. */
-.art{position:absolute;inset:0;z-index:5;width:100%;height:100%;pointer-events:none;opacity:1;transform:none;transition:none}
-.art img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block}
-.d1,.d2,.d3,.d4,.d5,.d6,.d7{transition-delay:0s}
-
-/* Page 3 SAFETY MODE: no clipping, scaling, translating or page motion.
-   Each full-width slice is an actual crop from the approved Canva image and only fades in. */
-#p3.pageReveal{opacity:1!important;transform:none!important;transition:none!important}
-.p3fade{position:absolute;left:0;width:100%;z-index:5;pointer-events:none;opacity:1;transition:none}
-.p3fade img{display:block;width:100%;height:100%;object-fit:fill}
-.p3a{top:0;height:12.451171875%;transition-delay:.08s}
-.p3b{top:12.451171875%;height:12.451171875%;transition-delay:.38s}
-.p3c{top:24.90234375%;height:11.71875%;transition-delay:.72s}
-.p3d{top:36.62109375%;height:9.27734375%;transition-delay:1.06s}
-.p3e{top:45.8984375%;height:7.568359375%;transition-delay:1.40s}
-.p3f{top:53.466796875%;height:17.08984375%;transition-delay:1.74s}
-.p3g{top:70.556640625%;height:29.443359375%;transition-delay:2.08s}
-
-/* Page 2 is the actual scene revealed behind the doors.
-   No duplicated scene is used during opening, which avoids the visible flash/jump. */
-#p2{opacity:1!important;visibility:hidden;transform:scale(.975);transform-origin:center center;transition:transform 2.5s cubic-bezier(.22,.68,.22,1);will-change:transform;backface-visibility:hidden}
-#p2.opening{transform:scale(1)}
-.p2piece{position:absolute;inset:0;z-index:5;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity .68s ease;will-change:opacity}
-#p2.texts-on .p2piece{opacity:1}
-.p2piece img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block}
-.p2-logo,.p2-names,.p2-date,.p2-scroll{transition-delay:0s}
-
-.p3-top{clip-path:inset(2% 0% 76% 0%)}
-.p3-verse{clip-path:inset(23% 7% 64% 7%)}
-.p3-copy{clip-path:inset(35% 8% 50% 8%)}
-.p3-date{clip-path:inset(48% 12% 39% 12%)}
-.p3-venue{clip-path:inset(58% 8% 24% 8%)}
-.p3-loc{clip-path:inset(75% 20% 10% 20%)}
-.p3-scroll{clip-path:inset(88% 22% 1% 22%)}
-
-.p4-head{clip-path:inset(3% 12% 77% 12%)}
-.p4-womenTxt{clip-path:inset(19% 7% 65% 7%)}
-.p4-womenIll{clip-path:inset(32% 14% 47% 14%)}
-.p4-womenBtn{clip-path:inset(48% 24% 43% 24%)}
-.p4-menTxt{clip-path:inset(56% 7% 30% 7%)}
-.p4-menIll{clip-path:inset(68% 13% 9% 13%)}
-.p4-menBtn{clip-path:inset(90% 22% 1% 22%)}
-
-.p5-head{clip-path:inset(9% 17% 66% 17%)}
-.p5-copy{clip-path:inset(27% 15% 52% 15%)}
-.p5-cu{clip-path:inset(39% 20% 45% 20%)}
-.p5-amz{clip-path:inset(49% 20% 35% 20%)}
-.p5-adults{clip-path:inset(59% 19% 25% 19%)}
-
-/* Portada: puertas con bisagra 3D sobre la MISMA página 2 real.
-   No hay una segunda imagen detrás, por lo que no existe salto visual al terminar la apertura. */
-.cover{position:fixed;z-index:100;inset:0;background:#f7f1e7;display:flex;align-items:center;justify-content:center;overflow:hidden;touch-action:manipulation;pointer-events:auto}
-.cover.open{pointer-events:none}
-.doors{position:relative;width:min(100vw,944px);aspect-ratio:944/2048;overflow:hidden;perspective:2400px;background:#f7f1e7}
-.door{position:absolute;top:0;width:50%;height:100%;overflow:hidden;z-index:3;transition:transform 2.5s cubic-bezier(.22,.68,.22,1),opacity .28s ease;will-change:transform,opacity;transform-style:preserve-3d;backface-visibility:hidden}
-.door img{display:block;width:100%;height:100%;object-fit:fill;transform:none!important;backface-visibility:hidden}
-.left{left:0;transform-origin:left center}.right{right:0;transform-origin:right center}
-.cover.open .left{transform:rotateY(-74deg)}
-.cover.open .right{transform:rotateY(74deg)}
-.cover.done .door{opacity:0}
-.tap{position:absolute;z-index:10;left:50%;top:61.5%;transform:translate(-50%,-50%);width:48%;height:10%;border:0;background:transparent;cursor:pointer;padding:0;touch-action:manipulation}
-
-.hot{position:absolute;z-index:30;display:block;border-radius:999px}
-.loc{left:31%;top:70.8%;width:38%;height:5.5%}.women{left:31%;top:51.2%;width:38%;height:4.6%}.men{left:29%;top:91.1%;width:42%;height:4.8%}.cuesta{left:31%;top:40.2%;width:38%;height:4.7%}.amazon{left:31%;top:50.4%;width:38%;height:4.7%}
-.music{position:fixed;right:14px;top:max(14px,env(safe-area-inset-top));z-index:90;width:42px;height:42px;border-radius:50%;border:1px solid rgba(31,70,145,.25);background:rgba(249,245,237,.88);backdrop-filter:blur(7px);font-size:18px;color:#214a9a;display:none;align-items:center;justify-content:center;box-shadow:0 3px 15px rgba(0,0,0,.08)}.music.show{display:flex}
-
-
-@media(max-width:600px){.music{right:10px;width:39px;height:39px}}
-</style>
-</head>
-<body>
-<audio id="song" preload="auto" playsinline loop><source src="assets/spring-max-richter.mp3?v=v19" type="audio/mpeg"></audio>
-<button id="music" class="music" aria-label="Silenciar música">♫</button>
-
-<div class="invite">
-  <section class="page pageReveal" id="p2">
-    <img class="base" src="assets/02-apertura-base.png?v=v19" alt="Jeanny y Ariel">
-    <div class="p2piece p2-logo"><img src="assets/02-logo-overlay.png?v=v19" alt=""></div>
-    <div class="p2piece p2-names"><img src="assets/02-nombres-overlay.png?v=v19" alt=""></div>
-    <div class="p2piece p2-date"><img src="assets/02-fecha-overlay.png?v=v19" alt=""></div>
-    <div class="p2piece p2-scroll"><img src="assets/02-scroll-overlay.png?v=v19" alt=""></div>
-  </section>
-
-  <section class="page pageReveal" id="p3">
-    <img class="base" src="assets/03-boda-base.png?v=v19" alt="Detalles de la boda">
-    <div class="p3fade p3a"><img src="assets/03-logo.png?v=v19" alt=""></div>
-    <div class="p3fade p3b"><img src="assets/03-nombres.png?v=v19" alt=""></div>
-    <div class="p3fade p3c"><img src="assets/03-versiculo.png?v=v19" alt=""></div>
-    <div class="p3fade p3d"><img src="assets/03-mensaje.png?v=v19" alt=""></div>
-    <div class="p3fade p3e"><img src="assets/03-fecha.png?v=v19" alt=""></div>
-    <div class="p3fade p3f"><img src="assets/03-lugar.png?v=v19" alt=""></div>
-    <div class="p3fade p3g"><img src="assets/03-boton-scroll.png?v=v19" alt=""></div>
-    <a class="hot loc" href="https://maps.app.goo.gl/bXNYkKEkYui6yCsP8?g_st=ic" target="_blank" rel="noopener" aria-label="Ver ubicación"></a>
-  </section>
-
-  <section class="page pageReveal" id="p4">
-    <img class="base" src="assets/04-vestimenta-base.png?v=v19" alt="Código de vestimenta">
-    <div class="art p4-head d1"><img src="assets/04-vestimenta-final.png?v=v19" alt=""></div>
-    <div class="art p4-womenTxt d2"><img src="assets/04-vestimenta-final.png?v=v19" alt=""></div>
-    <div class="art p4-womenIll d3"><img src="assets/04-vestimenta-final.png?v=v19" alt=""></div>
-    <div class="art p4-womenBtn d4"><img src="assets/04-vestimenta-final.png?v=v19" alt=""></div>
-    <div class="art p4-menTxt d4"><img src="assets/04-vestimenta-final.png?v=v19" alt=""></div>
-    <div class="art p4-menIll d5"><img src="assets/04-vestimenta-final.png?v=v19" alt=""></div>
-    <div class="art p4-menBtn d6"><img src="assets/04-vestimenta-final.png?v=v19" alt=""></div>
-    <a class="hot women" href="https://www.pinterest.com/turtle_uv94/code-dress-girls/?invite_code=2acb87ba884a4c9c999840964b3e6c9f&sender=549931941906887975" target="_blank" rel="noopener" aria-label="Ver referencias para ellas"></a>
-    <a class="hot men" href="https://www.pinterest.com/turtle_uv94/code-dress-boys/?invite_code=ddfad047927e46b4bc0679652ee8c017&sender=549931941906887975" target="_blank" rel="noopener" aria-label="Ver referencias para ellos"></a>
-  </section>
-
-  <section class="page pageReveal" id="p5">
-    <img class="base" src="assets/05-regalos-final-aprobada.png?v=v19" alt="Listas de regalos">
-    <a class="hot cuesta" href="https://listaderegalos.casacuesta.com/Event/Jeanny-Ariel?utm_source=share" target="_blank" rel="noopener" aria-label="Ver lista Casa Cuesta"></a>
-    <a class="hot amazon" href="https://www.amazon.com/wedding/guest-view/SKL6AKIKFPXG" target="_blank" rel="noopener" aria-label="Ver lista Amazon"></a>
-  </section>
+*{box-sizing:border-box}html,body{margin:0;background:#f7f1e7}body{overflow:hidden}body.opened{overflow-x:hidden;overflow-y:auto}.invite{width:min(100vw,944px);margin:auto}.page{position:relative;width:100%;aspect-ratio:944/2048}.page>img{display:block;width:100%;height:100%;object-fit:fill}.hot{position:absolute;z-index:5;display:block;border-radius:999px}.loc{left:31%;top:70.8%;width:38%;height:5.5%}.women{left:31%;top:51.2%;width:38%;height:4.6%}.men{left:29%;top:91.1%;width:42%;height:4.8%}.cuesta{left:31%;top:40.2%;width:38%;height:4.7%}.amazon{left:31%;top:50.4%;width:38%;height:4.7%}
+.cover{position:fixed;z-index:100;inset:0;display:flex;align-items:flex-start;justify-content:center;background:#f7f1e7;overflow:hidden;pointer-events:auto}.doors{position:relative;width:min(100vw,944px);aspect-ratio:944/2048;overflow:hidden;perspective:2600px;background:#f7f1e7}.door{position:absolute;top:0;width:50%;height:100%;z-index:3;overflow:hidden;transition:transform 2.5s cubic-bezier(.22,.61,.36,1),opacity .35s ease;transform-style:preserve-3d;backface-visibility:hidden;will-change:transform}.door img{display:block;width:100%;height:100%;object-fit:fill;backface-visibility:hidden}.left{left:0;transform-origin:left center}.right{right:0;transform-origin:right center}.cover.open .left{transform:rotateY(-82deg)}.cover.open .right{transform:rotateY(82deg)}.cover.done{visibility:hidden;pointer-events:none}.tap{position:absolute;z-index:10;left:50%;top:61.5%;transform:translate(-50%,-50%);width:48%;height:10%;border:0;background:transparent;cursor:pointer}.scene{transform:scale(.985);transform-origin:center;transition:transform 2.5s cubic-bezier(.22,.61,.36,1)}body.opening .scene{transform:scale(1)}
+.music{position:fixed;right:12px;top:max(12px,env(safe-area-inset-top));z-index:90;width:40px;height:40px;border-radius:50%;border:1px solid rgba(31,70,145,.25);background:rgba(249,245,237,.9);color:#214a9a;display:none;align-items:center;justify-content:center;font-size:18px}.music.show{display:flex}
+</style></head><body>
+<audio id="song" preload="auto" playsinline loop><source src="assets/spring-max-richter.mp3?v=v21" type="audio/mpeg"></audio><button id="music" class="music" aria-label="Silenciar música">♫</button>
+<div class="invite scene">
+<section class="page"><img src="assets/02-invitacion.png?v=v21" alt="Jeanny y Ariel"></section>
+<section class="page"><img src="assets/03-boda.png?v=v21" alt="Detalles de la boda"><a class="hot loc" href="https://maps.app.goo.gl/bXNYkKEkYui6yCsP8?g_st=ic" target="_blank" rel="noopener" aria-label="Ver ubicación"></a></section>
+<section class="page"><img src="assets/04-vestimenta.png?v=v21" alt="Código de vestimenta"><a class="hot women" href="https://www.pinterest.com/turtle_uv94/code-dress-girls/?invite_code=2acb87ba884a4c9c999840964b3e6c9f&sender=549931941906887975" target="_blank" rel="noopener" aria-label="Ver referencias para ellas"></a><a class="hot men" href="https://www.pinterest.com/turtle_uv94/code-dress-boys/?invite_code=ddfad047927e46b4bc0679652ee8c017&sender=549931941906887975" target="_blank" rel="noopener" aria-label="Ver referencias para ellos"></a></section>
+<section class="page"><img src="assets/05-regalos.png?v=v21" alt="Listas de regalos"><a class="hot cuesta" href="https://listaderegalos.casacuesta.com/Event/Jeanny-Ariel?utm_source=share" target="_blank" rel="noopener" aria-label="Ver lista Casa Cuesta"></a><a class="hot amazon" href="https://www.amazon.com/wedding/guest-view/SKL6AKIKFPXG" target="_blank" rel="noopener" aria-label="Ver lista Amazon"></a></section>
 </div>
-
-<div class="cover" id="cover">
-  <div class="doors">
-    <div class="door left"><img src="assets/01-puerta-izquierda.png?v=v19" alt=""></div>
-    <div class="door right"><img src="assets/01-puerta-derecha.png?v=v19" alt=""></div>
-    <button class="tap" id="open" aria-label="Toca para abrir"></button>
-  </div>
-</div>
-
+<div class="cover" id="cover"><div class="doors"><div class="door left"><img src="assets/01-puerta-izquierda.png?v=v21" alt=""></div><div class="door right"><img src="assets/01-puerta-derecha.png?v=v21" alt=""></div><button class="tap" id="open" aria-label="Toca para abrir"></button></div></div>
 <script>
-const audio=document.getElementById('song');
-const cover=document.getElementById('cover');
-const openBtn=document.getElementById('open');
-const music=document.getElementById('music');
-const p2=document.getElementById('p2');
-audio.volume=.38;
-let opened=false;
-
-function openInvite(){
-  if(opened)return;
-  opened=true;
-  // Must happen synchronously inside the user's tap for iOS/Android audio permission.
-  audio.play().catch(()=>{});
-  music.classList.add('show');
-
-  // Keep the second page completely hidden before the tap, so nothing can peek
-  // around the closed doors. Reveal it only when the opening begins.
-  p2.style.visibility='visible';
-
-  requestAnimationFrame(()=>{
-    cover.style.background='transparent';
-    p2.classList.add('opening');
-    cover.classList.add('open');
-  });
-
-  // Keep the transparent cover in place; never swap/hide the scene.
-  // Once the slow hinge motion is finished, softly remove only the door panels.
-  // At 2.5 s the doors are fully open. Keep the scene itself untouched;
-  // only fade the door panels and unlock scrolling.
-  setTimeout(()=>{
-    cover.classList.add('done');
-    document.body.classList.add('opened');
-  },2500);
-
-  // Only after the opening is fully stable does the text appear.
-  setTimeout(()=>{p2.classList.add('texts-on')},2700);
-}
-openBtn.addEventListener('pointerup',openInvite,{passive:true});
-openBtn.addEventListener('click',openInvite);
-
-music.addEventListener('click',()=>{
-  if(audio.paused){audio.play().catch(()=>{});music.textContent='♫'}
-  else{audio.pause();music.textContent='♪̸'}
-});
-
-</script>
-</body>
-</html>
+const audio=document.getElementById('song'),cover=document.getElementById('cover'),btn=document.getElementById('open'),music=document.getElementById('music');let opened=false;audio.volume=.38;
+function openInvite(){if(opened)return;opened=true;audio.play().catch(()=>{});music.classList.add('show');document.body.classList.add('opening');cover.classList.add('open');setTimeout(()=>{cover.classList.add('done');document.body.classList.add('opened')},2550)}
+btn.addEventListener('pointerup',openInvite,{passive:true});btn.addEventListener('click',openInvite);music.addEventListener('click',()=>{if(audio.paused){audio.play().catch(()=>{});music.textContent='♫'}else{audio.pause();music.textContent='♪̸'}});
+</script></body></html>
