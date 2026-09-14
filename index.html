@@ -36,12 +36,12 @@ body{overflow-x:hidden;font-family:Georgia,serif}
 
 /* Page 2 is the actual scene revealed behind the doors.
    No duplicated scene is used during opening, which avoids the visible flash/jump. */
-#p2{transform:scale(.972);transform-origin:center center;transition:transform 1.20s cubic-bezier(.22,.61,.36,1);will-change:transform}
+#p2{opacity:1!important;transform:scale(.965);transform-origin:center center;transition:transform 1.28s cubic-bezier(.22,.61,.36,1);will-change:transform;backface-visibility:hidden}
 #p2.opening{transform:scale(1)}
-.p2piece{position:absolute;inset:0;z-index:5;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity .78s ease;}
-#p2.on .p2piece{opacity:1}
+.p2piece{position:absolute;inset:0;z-index:5;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity .68s ease;will-change:opacity}
+#p2.texts-on .p2piece{opacity:1}
 .p2piece img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block}
-.p2-logo{transition-delay:.12s}.p2-names{transition-delay:.38s}.p2-date{transition-delay:.68s}.p2-scroll{transition-delay:.98s}
+.p2-logo{transition-delay:.00s}.p2-names{transition-delay:.18s}.p2-date{transition-delay:.36s}.p2-scroll{transition-delay:.54s}
 
 .p3-top{clip-path:inset(2% 0% 76% 0%)}
 .p3-verse{clip-path:inset(23% 7% 64% 7%)}
@@ -70,11 +70,11 @@ body{overflow-x:hidden;font-family:Georgia,serif}
 .cover{position:fixed;z-index:100;inset:0;background:transparent;display:flex;align-items:center;justify-content:center;overflow:hidden;touch-action:manipulation;pointer-events:auto}
 .cover.open{pointer-events:none}
 .doors{position:relative;width:min(100vw,calc(100vh * 944 / 2048),944px);aspect-ratio:944/2048;overflow:visible;perspective:1500px;background:transparent}
-.door{position:absolute;top:0;width:50%;height:100%;overflow:hidden;z-index:3;transition:transform 1.18s cubic-bezier(.58,.02,.18,1),opacity 1.05s ease;will-change:transform,opacity;transform-style:preserve-3d;backface-visibility:hidden}
+.door{position:absolute;top:0;width:50%;height:100%;overflow:hidden;z-index:3;transition:transform 1.22s cubic-bezier(.58,.02,.18,1);will-change:transform;transform-style:preserve-3d;backface-visibility:hidden}
 .door img{display:block;width:100%;height:100%;object-fit:fill;transform:none!important;backface-visibility:hidden}
 .left{left:0;transform-origin:left center}.right{right:0;transform-origin:right center}
-.cover.open .left{transform:rotateY(-82deg);opacity:.08}
-.cover.open .right{transform:rotateY(82deg);opacity:.08}
+.cover.open .left{transform:rotateY(-88deg)}
+.cover.open .right{transform:rotateY(88deg)}
 .tap{position:absolute;z-index:10;left:50%;top:61.5%;transform:translate(-50%,-50%);width:48%;height:10%;border:0;background:transparent;cursor:pointer;padding:0;touch-action:manipulation}
 
 .hot{position:absolute;z-index:30;display:block;border-radius:999px}
@@ -86,45 +86,45 @@ body{overflow-x:hidden;font-family:Georgia,serif}
 </style>
 </head>
 <body>
-<audio id="song" preload="auto" playsinline loop><source src="assets/spring-max-richter.mp3?v=v14" type="audio/mpeg"></audio>
+<audio id="song" preload="auto" playsinline loop><source src="assets/spring-max-richter.mp3?v=v15" type="audio/mpeg"></audio>
 <button id="music" class="music" aria-label="Silenciar música">♫</button>
 
 <div class="invite">
   <section class="page pageReveal" id="p2">
-    <img class="base" src="assets/02-apertura-base.png?v=v14" alt="Jeanny y Ariel">
-    <div class="p2piece p2-logo"><img src="assets/02-logo-overlay.png?v=v14" alt=""></div>
-    <div class="p2piece p2-names"><img src="assets/02-nombres-overlay.png?v=v14" alt=""></div>
-    <div class="p2piece p2-date"><img src="assets/02-fecha-overlay.png?v=v14" alt=""></div>
-    <div class="p2piece p2-scroll"><img src="assets/02-scroll-overlay.png?v=v14" alt=""></div>
+    <img class="base" src="assets/02-apertura-base.png?v=v15" alt="Jeanny y Ariel">
+    <div class="p2piece p2-logo"><img src="assets/02-logo-overlay.png?v=v15" alt=""></div>
+    <div class="p2piece p2-names"><img src="assets/02-nombres-overlay.png?v=v15" alt=""></div>
+    <div class="p2piece p2-date"><img src="assets/02-fecha-overlay.png?v=v15" alt=""></div>
+    <div class="p2piece p2-scroll"><img src="assets/02-scroll-overlay.png?v=v15" alt=""></div>
   </section>
 
   <section class="page pageReveal" id="p3">
-    <img class="base" src="assets/03-boda-base.png?v=v14" alt="Detalles de la boda">
-    <div class="p3fade p3a"><img src="assets/03-logo.png?v=v14" alt=""></div>
-    <div class="p3fade p3b"><img src="assets/03-nombres.png?v=v14" alt=""></div>
-    <div class="p3fade p3c"><img src="assets/03-versiculo.png?v=v14" alt=""></div>
-    <div class="p3fade p3d"><img src="assets/03-mensaje.png?v=v14" alt=""></div>
-    <div class="p3fade p3e"><img src="assets/03-fecha.png?v=v14" alt=""></div>
-    <div class="p3fade p3f"><img src="assets/03-lugar.png?v=v14" alt=""></div>
-    <div class="p3fade p3g"><img src="assets/03-boton-scroll.png?v=v14" alt=""></div>
+    <img class="base" src="assets/03-boda-base.png?v=v15" alt="Detalles de la boda">
+    <div class="p3fade p3a"><img src="assets/03-logo.png?v=v15" alt=""></div>
+    <div class="p3fade p3b"><img src="assets/03-nombres.png?v=v15" alt=""></div>
+    <div class="p3fade p3c"><img src="assets/03-versiculo.png?v=v15" alt=""></div>
+    <div class="p3fade p3d"><img src="assets/03-mensaje.png?v=v15" alt=""></div>
+    <div class="p3fade p3e"><img src="assets/03-fecha.png?v=v15" alt=""></div>
+    <div class="p3fade p3f"><img src="assets/03-lugar.png?v=v15" alt=""></div>
+    <div class="p3fade p3g"><img src="assets/03-boton-scroll.png?v=v15" alt=""></div>
     <a class="hot loc" href="https://maps.app.goo.gl/bXNYkKEkYui6yCsP8?g_st=ic" target="_blank" rel="noopener" aria-label="Ver ubicación"></a>
   </section>
 
   <section class="page pageReveal" id="p4">
-    <img class="base" src="assets/04-vestimenta-base.png?v=v14" alt="Código de vestimenta">
-    <div class="art p4-head d1"><img src="assets/04-vestimenta-final.png?v=v14" alt=""></div>
-    <div class="art p4-womenTxt d2"><img src="assets/04-vestimenta-final.png?v=v14" alt=""></div>
-    <div class="art p4-womenIll d3"><img src="assets/04-vestimenta-final.png?v=v14" alt=""></div>
-    <div class="art p4-womenBtn d4"><img src="assets/04-vestimenta-final.png?v=v14" alt=""></div>
-    <div class="art p4-menTxt d4"><img src="assets/04-vestimenta-final.png?v=v14" alt=""></div>
-    <div class="art p4-menIll d5"><img src="assets/04-vestimenta-final.png?v=v14" alt=""></div>
-    <div class="art p4-menBtn d6"><img src="assets/04-vestimenta-final.png?v=v14" alt=""></div>
+    <img class="base" src="assets/04-vestimenta-base.png?v=v15" alt="Código de vestimenta">
+    <div class="art p4-head d1"><img src="assets/04-vestimenta-final.png?v=v15" alt=""></div>
+    <div class="art p4-womenTxt d2"><img src="assets/04-vestimenta-final.png?v=v15" alt=""></div>
+    <div class="art p4-womenIll d3"><img src="assets/04-vestimenta-final.png?v=v15" alt=""></div>
+    <div class="art p4-womenBtn d4"><img src="assets/04-vestimenta-final.png?v=v15" alt=""></div>
+    <div class="art p4-menTxt d4"><img src="assets/04-vestimenta-final.png?v=v15" alt=""></div>
+    <div class="art p4-menIll d5"><img src="assets/04-vestimenta-final.png?v=v15" alt=""></div>
+    <div class="art p4-menBtn d6"><img src="assets/04-vestimenta-final.png?v=v15" alt=""></div>
     <a class="hot women" href="https://www.pinterest.com/turtle_uv94/code-dress-girls/?invite_code=2acb87ba884a4c9c999840964b3e6c9f&sender=549931941906887975" target="_blank" rel="noopener" aria-label="Ver referencias para ellas"></a>
     <a class="hot men" href="https://www.pinterest.com/turtle_uv94/code-dress-boys/?invite_code=ddfad047927e46b4bc0679652ee8c017&sender=549931941906887975" target="_blank" rel="noopener" aria-label="Ver referencias para ellos"></a>
   </section>
 
   <section class="page pageReveal" id="p5">
-    <img class="base" src="assets/05-regalos-final-aprobada.png?v=v14" alt="Listas de regalos">
+    <img class="base" src="assets/05-regalos-final-aprobada.png?v=v15" alt="Listas de regalos">
     <a class="hot cuesta" href="https://listaderegalos.casacuesta.com/Event/Jeanny-Ariel?utm_source=share" target="_blank" rel="noopener" aria-label="Ver lista Casa Cuesta"></a>
     <a class="hot amazon" href="https://www.amazon.com/wedding/guest-view/SKL6AKIKFPXG" target="_blank" rel="noopener" aria-label="Ver lista Amazon"></a>
   </section>
@@ -132,8 +132,8 @@ body{overflow-x:hidden;font-family:Georgia,serif}
 
 <div class="cover" id="cover">
   <div class="doors">
-    <div class="door left"><img src="assets/01-puerta-izquierda.png?v=v14" alt=""></div>
-    <div class="door right"><img src="assets/01-puerta-derecha.png?v=v14" alt=""></div>
+    <div class="door left"><img src="assets/01-puerta-izquierda.png?v=v15" alt=""></div>
+    <div class="door right"><img src="assets/01-puerta-derecha.png?v=v15" alt=""></div>
     <button class="tap" id="open" aria-label="Toca para abrir"></button>
   </div>
 </div>
@@ -154,18 +154,19 @@ function openInvite(){
   audio.play().catch(()=>{});
   music.classList.add('show');
 
-  // The real second page is already behind the doors.
-  // We zoom that SAME image while the doors rotate, so there is no handoff/flash.
-  p2.classList.add('opening');
-  cover.classList.add('open');
-
-  // Let the artwork appear slightly after the doors begin moving.
+  // One continuous scene only: the real second page is already behind the doors.
+  // The base zooms once while the doors open and never resets, so there is no visual handoff.
   requestAnimationFrame(()=>{
-    setTimeout(()=>p2.classList.add('on'),180);
+    p2.classList.add('opening');
+    cover.classList.add('open');
   });
 
-  // Once the doors are fully out of view, remove only the door layer.
-  setTimeout(()=>{cover.style.display='none'},1320);
+  // Do not remove the cover from layout (display:none can force a repaint/flash).
+  // We only hide the already-open doors after their motion has fully finished.
+  setTimeout(()=>{cover.style.visibility='hidden'},1360);
+
+  // Text begins only after the door opening + zoom are completely stable.
+  setTimeout(()=>{p2.classList.add('texts-on')},1480);
 }
 openBtn.addEventListener('pointerup',openInvite,{passive:true});
 openBtn.addEventListener('click',openInvite);
