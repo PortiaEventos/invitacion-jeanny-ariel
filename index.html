@@ -48,6 +48,8 @@ body.locked{overflow:hidden}
 .p2-names{clip-path:inset(23% 18% 57% 18%)}
 .p2-date{clip-path:inset(39% 25% 45% 25%)}
 .p2-scroll{clip-path:inset(47% 18% 40% 18%)}
+/* Page 2: keep artwork perfectly still after the doors finish opening. */
+#p2 .layer.no-shake{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}
 
 .p3-head{clip-path:inset(0 0 79% 0)}
 .p3-intro{clip-path:inset(21% 0 69% 0)}
@@ -199,9 +201,9 @@ function startAudioFromGesture(){
 }
 
 function revealPage2(){
-  const els = document.querySelectorAll('#p2 .layer');
-  const delays = [0,180,400,650];
-  els.forEach((el,i)=>setTimeout(()=>el.classList.add('show'),delays[i]||0));
+  /* The cover already reveals the complete Page 2 artwork. Keep the matching
+     Page 2 layers static when the cover disappears so there is no post-open shake. */
+  document.querySelectorAll('#p2 .layer').forEach(el=>el.classList.add('no-shake'));
 }
 
 function openInvitation(ev){
