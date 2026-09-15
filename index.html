@@ -1,22 +1,48 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Jeanny & Ariel · 15.11.2026</title><link rel="preload" as="image" href="assets/02-invitacion.png?v=v22" fetchpriority="high">
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Jeanny & Ariel · 15.11.2026</title>
+<link rel="preload" as="image" href="assets/02-invitacion.png?v=v23" fetchpriority="high">
+<link rel="preload" as="audio" href="assets/spring-max-richter.mp3?v=v23">
 <style>
-*{box-sizing:border-box}html,body{margin:0;background:#f7f1e7}body{overflow:hidden}body.opened{overflow-x:hidden;overflow-y:auto}.invite{width:min(100vw,944px);margin:auto}.page{position:relative;width:100%;aspect-ratio:944/2048}.page>img{display:block;width:100%;height:100%;object-fit:fill}.hot{position:absolute;z-index:5;display:block;border-radius:999px}.loc{left:31%;top:70.8%;width:38%;height:5.5%}.women{left:31%;top:51.2%;width:38%;height:4.6%}.men{left:29%;top:91.1%;width:42%;height:4.8%}.cuesta{left:31%;top:40.2%;width:38%;height:4.7%}.amazon{left:31%;top:50.4%;width:38%;height:4.7%}
-.cover{position:fixed;z-index:100;inset:0;display:flex;align-items:flex-start;justify-content:center;background:#f7f1e7;overflow:hidden;pointer-events:auto}.doors{position:relative;width:min(100vw,944px);aspect-ratio:944/2048;overflow:hidden;perspective:2600px;background:#f7f1e7}.door{position:absolute;top:0;width:50%;height:100%;z-index:3;overflow:hidden;transition:transform 2.5s cubic-bezier(.22,.61,.36,1),opacity .35s ease;transform-style:preserve-3d;backface-visibility:hidden;will-change:transform}.door img{display:block;width:100%;height:100%;object-fit:fill;backface-visibility:hidden}.left{left:0;transform-origin:left center}.right{right:0;transform-origin:right center}.cover.open .left{transform:rotateY(-82deg)}.cover.open .right{transform:rotateY(82deg)}.cover.done{visibility:hidden;pointer-events:none}.tap{position:absolute;z-index:10;left:50%;top:61.5%;transform:translate(-50%,-50%);width:48%;height:10%;border:0;background:transparent;cursor:pointer}
-.music{position:fixed;right:12px;top:max(12px,env(safe-area-inset-top));z-index:90;width:40px;height:40px;border-radius:50%;border:1px solid rgba(31,70,145,.25);background:rgba(249,245,237,.9);color:#214a9a;display:none;align-items:center;justify-content:center;font-size:18px}.music.show{display:flex}
-</style></head><body>
-<audio id="song" preload="auto" playsinline loop><source src="assets/spring-max-richter.mp3?v=v22" type="audio/mpeg"></audio><button id="music" class="music" aria-label="Silenciar música">♫</button>
-<div class="invite">
-<section class="page"><img id="page2" src="assets/02-invitacion.png?v=v22" alt="Jeanny y Ariel" decoding="sync" fetchpriority="high"></section>
-<section class="page"><img src="assets/03-boda.png?v=v22" alt="Detalles de la boda"><a class="hot loc" href="https://maps.app.goo.gl/bXNYkKEkYui6yCsP8?g_st=ic" target="_blank" rel="noopener" aria-label="Ver ubicación"></a></section>
-<section class="page"><img src="assets/04-vestimenta.png?v=v22" alt="Código de vestimenta"><a class="hot women" href="https://www.pinterest.com/turtle_uv94/code-dress-girls/?invite_code=2acb87ba884a4c9c999840964b3e6c9f&sender=549931941906887975" target="_blank" rel="noopener" aria-label="Ver referencias para ellas"></a><a class="hot men" href="https://www.pinterest.com/turtle_uv94/code-dress-boys/?invite_code=ddfad047927e46b4bc0679652ee8c017&sender=549931941906887975" target="_blank" rel="noopener" aria-label="Ver referencias para ellos"></a></section>
-<section class="page"><img src="assets/05-regalos.png?v=v22" alt="Listas de regalos"><a class="hot cuesta" href="https://listaderegalos.casacuesta.com/Event/Jeanny-Ariel?utm_source=share" target="_blank" rel="noopener" aria-label="Ver lista Casa Cuesta"></a><a class="hot amazon" href="https://www.amazon.com/wedding/guest-view/SKL6AKIKFPXG" target="_blank" rel="noopener" aria-label="Ver lista Amazon"></a></section>
-</div>
-<div class="cover" id="cover"><div class="doors"><div class="door left"><img src="assets/01-puerta-izquierda.png?v=v22" alt=""></div><div class="door right"><img src="assets/01-puerta-derecha.png?v=v22" alt=""></div><button class="tap" id="open" aria-label="Toca para abrir"></button></div></div>
+*{box-sizing:border-box}html,body{margin:0;background:#f7f1e7}html{scroll-behavior:smooth}body{overflow:hidden}.invite{width:min(100%,944px);margin:0 auto;overflow:hidden}.page{position:relative;width:100%;line-height:0}.page>img{display:block;width:100%;height:auto}.hot{position:absolute;z-index:5;display:block;border-radius:999px}.loc{left:31%;top:70.8%;width:38%;height:5.5%}.women{left:31%;top:51.2%;width:38%;height:4.6%}.men{left:29%;top:91.1%;width:42%;height:4.8%}.cuesta{left:31%;top:40.2%;width:38%;height:4.7%}.amazon{left:31%;top:50.4%;width:38%;height:4.7%}
+/* Portada: siempre cabe COMPLETA en la pantalla, sin recorte */
+.cover{position:fixed;z-index:100;inset:0;background:#f7f1e7;display:flex;align-items:center;justify-content:center;overflow:hidden;pointer-events:auto}.doors{position:relative;height:min(100dvh,2048px);width:min(100vw,calc(100dvh * 944 / 2048),944px);max-height:100dvh;aspect-ratio:944/2048;overflow:hidden;perspective:3000px;background:#f7f1e7}.door{position:absolute;top:0;width:50%;height:100%;z-index:3;overflow:hidden;transition:transform 2.5s cubic-bezier(.25,.46,.45,.94);transform-style:preserve-3d;backface-visibility:hidden;will-change:transform}.door img{display:block;width:100%;height:100%;object-fit:fill;backface-visibility:hidden}.left{left:0;transform-origin:left center}.right{right:0;transform-origin:right center}
+/* Giro invertido: hacia adentro */
+.cover.open .left{transform:rotateY(78deg)}.cover.open .right{transform:rotateY(-78deg)}
+.cover.done{display:none}.tap{position:absolute;z-index:10;left:50%;top:61.5%;transform:translate(-50%,-50%);width:48%;height:10%;border:0;background:transparent;cursor:pointer}
+/* Página 2 ya está completa detrás. Un solo zoom continuo, sin reemplazos */
+.p2img{transform:scale(1);transform-origin:center center;will-change:transform}.p2img.enter{animation:p2zoom 3.4s cubic-bezier(.2,.65,.3,1) forwards}@keyframes p2zoom{from{transform:scale(1)}to{transform:scale(1.035)}}
+/* Páginas 3+ nunca dependen de esto para verse; solo un efecto sutil al entrar */
+.page.reveal>img{opacity:1;transform:none}.js .page.reveal>img{opacity:.01;transform:translateY(10px);transition:opacity .75s ease,transform .75s ease}.js .page.reveal.seen>img{opacity:1;transform:none}
+.music{position:fixed;right:12px;top:max(12px,env(safe-area-inset-top));z-index:90;width:42px;height:42px;border-radius:50%;border:1px solid rgba(31,70,145,.25);background:rgba(249,245,237,.94);color:#214a9a;display:none;align-items:center;justify-content:center;font-size:18px}.music.show{display:flex}
+@media (prefers-reduced-motion:reduce){.door{transition-duration:1.2s}.p2img.enter{animation:none}.js .page.reveal>img{opacity:1;transform:none;transition:none}}
+</style><script>document.documentElement.classList.add('js')</script></head><body>
+<audio id="song" preload="auto" playsinline loop src="assets/spring-max-richter.mp3?v=v23"></audio><button id="music" class="music" aria-label="Silenciar música">♫</button>
+<main class="invite" id="invite">
+<section class="page" id="p2"><img id="page2" class="p2img" src="assets/02-invitacion.png?v=v23" alt="Jeanny y Ariel" fetchpriority="high"></section>
+<section class="page reveal"><img src="assets/03-boda.png?v=v23" alt="Detalles de la boda"><a class="hot loc" href="https://maps.app.goo.gl/bXNYkKEkYui6yCsP8?g_st=ic" target="_blank" rel="noopener" aria-label="Ver ubicación"></a></section>
+<section class="page reveal"><img src="assets/04-vestimenta.png?v=v23" alt="Código de vestimenta"><a class="hot women" href="https://www.pinterest.com/turtle_uv94/code-dress-girls/?invite_code=2acb87ba884a4c9c999840964b3e6c9f&sender=549931941906887975" target="_blank" rel="noopener" aria-label="Ver referencias para ellas"></a><a class="hot men" href="https://www.pinterest.com/turtle_uv94/code-dress-boys/?invite_code=ddfad047927e46b4bc0679652ee8c017&sender=549931941906887975" target="_blank" rel="noopener" aria-label="Ver referencias para ellos"></a></section>
+<section class="page reveal"><img src="assets/05-regalos.png?v=v23" alt="Listas de regalos"><a class="hot cuesta" href="https://listaderegalos.casacuesta.com/Event/Jeanny-Ariel?utm_source=share" target="_blank" rel="noopener" aria-label="Ver lista Casa Cuesta"></a><a class="hot amazon" href="https://www.amazon.com/wedding/guest-view/SKL6AKIKFPXG" target="_blank" rel="noopener" aria-label="Ver lista Amazon"></a></section>
+</main>
+<div class="cover" id="cover"><div class="doors"><div class="door left"><img src="assets/01-puerta-izquierda.png?v=v23" alt=""></div><div class="door right"><img src="assets/01-puerta-derecha.png?v=v23" alt=""></div><button class="tap" id="open" aria-label="Toca para abrir"></button></div></div>
 <script>
-const audio=document.getElementById('song'),cover=document.getElementById('cover'),btn=document.getElementById('open'),music=document.getElementById('music'),page2=document.getElementById('page2');let opened=false,ready=false;audio.volume=.38;
-async function prepare(){try{if(!page2.complete) await new Promise(r=>{page2.addEventListener('load',r,{once:true});page2.addEventListener('error',r,{once:true})});if(page2.decode) await page2.decode().catch(()=>{});}finally{ready=true;btn.disabled=false}}
-btn.disabled=true;prepare();
-function openInvite(){if(opened||!ready)return;opened=true;audio.play().catch(()=>{});music.classList.add('show');cover.classList.add('open');setTimeout(()=>{cover.classList.add('done');document.body.classList.add('opened')},2520)}
-btn.addEventListener('pointerup',openInvite,{passive:true});btn.addEventListener('click',openInvite);music.addEventListener('click',()=>{if(audio.paused){audio.play().catch(()=>{});music.textContent='♫'}else{audio.pause();music.textContent='♪̸'}});
+const audio=document.getElementById('song'),cover=document.getElementById('cover'),btn=document.getElementById('open'),music=document.getElementById('music'),page2=document.getElementById('page2');
+let opened=false; audio.volume=.42; audio.load();
+function openInvite(){
+ if(opened)return; opened=true;
+ // Debe ocurrir dentro del gesto del usuario para iPhone/Chrome/Safari.
+ const playPromise=audio.play(); if(playPromise&&playPromise.catch) playPromise.catch(()=>{});
+ music.classList.add('show');
+ page2.classList.add('enter');
+ cover.classList.add('open');
+ // El scroll se habilita ya; la portada fija sigue encima durante la apertura.
+ document.body.style.overflowX='hidden'; document.body.style.overflowY='auto';
+ setTimeout(()=>{cover.classList.add('done')},2500);
+}
+btn.addEventListener('click',openInvite);
+music.addEventListener('click',()=>{if(audio.paused){audio.play().catch(()=>{});music.textContent='♫'}else{audio.pause();music.textContent='♪̸'}});
+// Efecto sutil desde página 3. Fallback: si no hay observer, se muestran de inmediato.
+const reveal=[...document.querySelectorAll('.page.reveal')];
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('seen');io.unobserve(e.target)}}),{threshold:.12});reveal.forEach(x=>io.observe(x));}else{reveal.forEach(x=>x.classList.add('seen'))}
+// Seguridad: si una imagen falla, no deja una página alta vacía.
+document.querySelectorAll('.page>img').forEach(img=>img.addEventListener('error',()=>{img.closest('.page').style.display='none'}));
 </script></body></html>
